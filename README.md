@@ -3,7 +3,7 @@
 
 This is the C# SDK (Preview) for the Identity application, part of the [LUSID by FINBOURNE](https://www.finbourne.com/lusid-technology) platform. To use it you'll need a LUSID account. [Sign up for free at lusid.com](https://www.lusid.com/app/signup).
 
-The application provides identity management for LUSID in conjunction with the Access application.
+The application provides identity management for LUSID in conjunction with the [Access](https://github.com/finbourne/access-sdk-csharp-preview) application.
 
 For more details on other applications in the LUSID platform, see [Understanding all the applications in the LUSID platform](https://support.lusid.com/knowledgebase/article/KA-01787/en-us).
 
