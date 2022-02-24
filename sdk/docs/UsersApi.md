@@ -1,0 +1,860 @@
+# Finbourne.Identity.Sdk.Api.UsersApi
+
+All URIs are relative to *https://www.lusid.com/identity*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**CreateUser**](UsersApi.md#createuser) | **POST** /api/users | [EARLY ACCESS] CreateUser: Create User
+[**DeleteUser**](UsersApi.md#deleteuser) | **DELETE** /api/users/{id} | [EARLY ACCESS] DeleteUser: Delete User
+[**ExpirePassword**](UsersApi.md#expirepassword) | **POST** /api/users/{id}/lifecycle/$expirepassword | [BETA] ExpirePassword: Reset the user&#39;s password to a temporary one
+[**FindUsersById**](UsersApi.md#findusersbyid) | **GET** /api/directory | [EARLY ACCESS] FindUsersById: Find users by id endpoint
+[**GetUser**](UsersApi.md#getuser) | **GET** /api/users/{id} | [EARLY ACCESS] GetUser: Get User
+[**ListUsers**](UsersApi.md#listusers) | **GET** /api/users | [EARLY ACCESS] ListUsers: List Users
+[**ResetFactors**](UsersApi.md#resetfactors) | **POST** /api/users/{id}/lifecycle/$resetfactors | [BETA] ResetFactors: Reset MFA factors
+[**ResetPassword**](UsersApi.md#resetpassword) | **POST** /api/users/{id}/lifecycle/$resetpassword | [BETA] ResetPassword: Reset Password
+[**SendActivationEmail**](UsersApi.md#sendactivationemail) | **POST** /api/users/{id}/lifecycle/$activate | [BETA] SendActivationEmail: Sends an activation email to the User
+[**UnlockUser**](UsersApi.md#unlockuser) | **POST** /api/users/{id}/lifecycle/$unlock | [BETA] UnlockUser: Unlock User
+[**UpdateUser**](UsersApi.md#updateuser) | **PUT** /api/users/{id} | [EARLY ACCESS] UpdateUser: Update User
+
+
+<a name="createuser"></a>
+# **CreateUser**
+> UserResponse CreateUser (CreateUserRequest createUserRequest, bool? waitForReindex = null)
+
+[EARLY ACCESS] CreateUser: Create User
+
+Create a new User
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Finbourne.Identity.Sdk.Api;
+using Finbourne.Identity.Sdk.Client;
+using Finbourne.Identity.Sdk.Model;
+
+namespace Example
+{
+    public class CreateUserExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/identity";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UsersApi(config);
+            var createUserRequest = new CreateUserRequest(); // CreateUserRequest | Details of the User to be created
+            var waitForReindex = true;  // bool? | Should the request wait until the newly created User is indexed (available in List) before returning (optional)  (default to false)
+
+            try
+            {
+                // [EARLY ACCESS] CreateUser: Create User
+                UserResponse result = apiInstance.CreateUser(createUserRequest, waitForReindex);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.CreateUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createUserRequest** | [**CreateUserRequest**](CreateUserRequest.md)| Details of the User to be created | 
+ **waitForReindex** | **bool?**| Should the request wait until the newly created User is indexed (available in List) before returning | [optional] [default to false]
+
+### Return type
+
+[**UserResponse**](UserResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Create a new user |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deleteuser"></a>
+# **DeleteUser**
+> void DeleteUser (string id, bool? purge = null)
+
+[EARLY ACCESS] DeleteUser: Delete User
+
+By default the user will be de-provisioned and inactive, however their record will remain in the identity  provider for audit purposes. If this is not desirable and removal of all trace of the user is required,  the purge parameter can be specified to indicate the details should be purged completely.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Finbourne.Identity.Sdk.Api;
+using Finbourne.Identity.Sdk.Client;
+using Finbourne.Identity.Sdk.Model;
+
+namespace Example
+{
+    public class DeleteUserExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/identity";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UsersApi(config);
+            var id = id_example;  // string | The unique identifier for the user
+            var purge = true;  // bool? | Whether to purge any trace of the user from the identity provider (will affect audit) (optional) 
+
+            try
+            {
+                // [EARLY ACCESS] DeleteUser: Delete User
+                apiInstance.DeleteUser(id, purge);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.DeleteUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The unique identifier for the user | 
+ **purge** | **bool?**| Whether to purge any trace of the user from the identity provider (will affect audit) | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Success |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="expirepassword"></a>
+# **ExpirePassword**
+> TemporaryPassword ExpirePassword (string id)
+
+[BETA] ExpirePassword: Reset the user's password to a temporary one
+
+Resets the user's password to a temporary one which is then expired
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Finbourne.Identity.Sdk.Api;
+using Finbourne.Identity.Sdk.Client;
+using Finbourne.Identity.Sdk.Model;
+
+namespace Example
+{
+    public class ExpirePasswordExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/identity";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UsersApi(config);
+            var id = id_example;  // string | The unique identifier for the User having its password reset
+
+            try
+            {
+                // [BETA] ExpirePassword: Reset the user's password to a temporary one
+                TemporaryPassword result = apiInstance.ExpirePassword(id);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.ExpirePassword: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The unique identifier for the User having its password reset | 
+
+### Return type
+
+[**TemporaryPassword**](TemporaryPassword.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Reset the user&#39;s password |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="findusersbyid"></a>
+# **FindUsersById**
+> ListUsersResponse FindUsersById (List<string> id)
+
+[EARLY ACCESS] FindUsersById: Find users by id endpoint
+
+Finds a maximum of 50 users by ID
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Finbourne.Identity.Sdk.Api;
+using Finbourne.Identity.Sdk.Client;
+using Finbourne.Identity.Sdk.Model;
+
+namespace Example
+{
+    public class FindUsersByIdExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/identity";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UsersApi(config);
+            var id = new List<string>(); // List<string> | A list of unique identifiers for the users
+
+            try
+            {
+                // [EARLY ACCESS] FindUsersById: Find users by id endpoint
+                ListUsersResponse result = apiInstance.FindUsersById(id);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.FindUsersById: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**List&lt;string&gt;**](string.md)| A list of unique identifiers for the users | 
+
+### Return type
+
+[**ListUsersResponse**](ListUsersResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getuser"></a>
+# **GetUser**
+> UserResponse GetUser (string id, bool? includeRoles = null)
+
+[EARLY ACCESS] GetUser: Get User
+
+Get the specified User
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Finbourne.Identity.Sdk.Api;
+using Finbourne.Identity.Sdk.Client;
+using Finbourne.Identity.Sdk.Model;
+
+namespace Example
+{
+    public class GetUserExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/identity";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UsersApi(config);
+            var id = id_example;  // string | The unique identifier for the User
+            var includeRoles = true;  // bool? | Flag indicating that the users roles should be included in the response (optional) 
+
+            try
+            {
+                // [EARLY ACCESS] GetUser: Get User
+                UserResponse result = apiInstance.GetUser(id, includeRoles);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.GetUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The unique identifier for the User | 
+ **includeRoles** | **bool?**| Flag indicating that the users roles should be included in the response | [optional] 
+
+### Return type
+
+[**UserResponse**](UserResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Get the specified user |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listusers"></a>
+# **ListUsers**
+> ICollection&lt;UserResponse&gt; ListUsers (bool? includeRoles = null, bool? includeDeactivated = null)
+
+[EARLY ACCESS] ListUsers: List Users
+
+List the available Users
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Finbourne.Identity.Sdk.Api;
+using Finbourne.Identity.Sdk.Client;
+using Finbourne.Identity.Sdk.Model;
+
+namespace Example
+{
+    public class ListUsersExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/identity";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UsersApi(config);
+            var includeRoles = true;  // bool? | Flag indicating that the users roles should be included in the response (optional)  (default to false)
+            var includeDeactivated = true;  // bool? | Include previously deleted (not purged) users (optional)  (default to false)
+
+            try
+            {
+                // [EARLY ACCESS] ListUsers: List Users
+                ICollection<UserResponse> result = apiInstance.ListUsers(includeRoles, includeDeactivated);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.ListUsers: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **includeRoles** | **bool?**| Flag indicating that the users roles should be included in the response | [optional] [default to false]
+ **includeDeactivated** | **bool?**| Include previously deleted (not purged) users | [optional] [default to false]
+
+### Return type
+
+[**ICollection&lt;UserResponse&gt;**](UserResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List the available users |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="resetfactors"></a>
+# **ResetFactors**
+> void ResetFactors (string id)
+
+[BETA] ResetFactors: Reset MFA factors
+
+Resets the MFA factors of the specified User
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Finbourne.Identity.Sdk.Api;
+using Finbourne.Identity.Sdk.Client;
+using Finbourne.Identity.Sdk.Model;
+
+namespace Example
+{
+    public class ResetFactorsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/identity";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UsersApi(config);
+            var id = id_example;  // string | The unique identifier for the User having their MFA factors reset
+
+            try
+            {
+                // [BETA] ResetFactors: Reset MFA factors
+                apiInstance.ResetFactors(id);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.ResetFactors: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The unique identifier for the User having their MFA factors reset | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Success |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="resetpassword"></a>
+# **ResetPassword**
+> void ResetPassword (string id)
+
+[BETA] ResetPassword: Reset Password
+
+Resets the password of the specified User
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Finbourne.Identity.Sdk.Api;
+using Finbourne.Identity.Sdk.Client;
+using Finbourne.Identity.Sdk.Model;
+
+namespace Example
+{
+    public class ResetPasswordExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/identity";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UsersApi(config);
+            var id = id_example;  // string | The unique identifier for the User having their password reset
+
+            try
+            {
+                // [BETA] ResetPassword: Reset Password
+                apiInstance.ResetPassword(id);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.ResetPassword: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The unique identifier for the User having their password reset | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Success |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="sendactivationemail"></a>
+# **SendActivationEmail**
+> void SendActivationEmail (string id)
+
+[BETA] SendActivationEmail: Sends an activation email to the User
+
+Sends an activation email to the specified User
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Finbourne.Identity.Sdk.Api;
+using Finbourne.Identity.Sdk.Client;
+using Finbourne.Identity.Sdk.Model;
+
+namespace Example
+{
+    public class SendActivationEmailExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/identity";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UsersApi(config);
+            var id = id_example;  // string | The unique identifier for the User to be activated
+
+            try
+            {
+                // [BETA] SendActivationEmail: Sends an activation email to the User
+                apiInstance.SendActivationEmail(id);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.SendActivationEmail: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The unique identifier for the User to be activated | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Success |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="unlockuser"></a>
+# **UnlockUser**
+> void UnlockUser (string id)
+
+[BETA] UnlockUser: Unlock User
+
+Unlocks the specified User
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Finbourne.Identity.Sdk.Api;
+using Finbourne.Identity.Sdk.Client;
+using Finbourne.Identity.Sdk.Model;
+
+namespace Example
+{
+    public class UnlockUserExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/identity";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UsersApi(config);
+            var id = id_example;  // string | The unique identifier for the User to be unlocked
+
+            try
+            {
+                // [BETA] UnlockUser: Unlock User
+                apiInstance.UnlockUser(id);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.UnlockUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The unique identifier for the User to be unlocked | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Success |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateuser"></a>
+# **UpdateUser**
+> UserResponse UpdateUser (string id, UpdateUserRequest updateUserRequest)
+
+[EARLY ACCESS] UpdateUser: Update User
+
+Updates the specified User
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Finbourne.Identity.Sdk.Api;
+using Finbourne.Identity.Sdk.Client;
+using Finbourne.Identity.Sdk.Model;
+
+namespace Example
+{
+    public class UpdateUserExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/identity";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UsersApi(config);
+            var id = id_example;  // string | The unique identifier for the User to be updated
+            var updateUserRequest = new UpdateUserRequest(); // UpdateUserRequest | The new definition of the User
+
+            try
+            {
+                // [EARLY ACCESS] UpdateUser: Update User
+                UserResponse result = apiInstance.UpdateUser(id, updateUserRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.UpdateUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The unique identifier for the User to be updated | 
+ **updateUserRequest** | [**UpdateUserRequest**](UpdateUserRequest.md)| The new definition of the User | 
+
+### Return type
+
+[**UserResponse**](UserResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Update a user |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
