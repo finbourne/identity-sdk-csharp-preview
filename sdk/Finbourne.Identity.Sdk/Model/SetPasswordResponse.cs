@@ -27,31 +27,39 @@ using OpenAPIDateConverter = Finbourne.Identity.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Identity.Sdk.Model
 {
     /// <summary>
-    /// Time at which the support access expires
+    /// The result of setting a password
     /// </summary>
-    [DataContract(Name = "SupportAccessExpiry")]
-    public partial class SupportAccessExpiry : IEquatable<SupportAccessExpiry>
+    [DataContract(Name = "SetPasswordResponse")]
+    public partial class SetPasswordResponse : IEquatable<SetPasswordResponse>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SupportAccessExpiry" /> class.
+        /// Initializes a new instance of the <see cref="SetPasswordResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected SupportAccessExpiry() { }
+        protected SetPasswordResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="SupportAccessExpiry" /> class.
+        /// Initializes a new instance of the <see cref="SetPasswordResponse" /> class.
         /// </summary>
-        /// <param name="expiry">DateTimeOffset at which the access will be revoked (required).</param>
-        public SupportAccessExpiry(DateTimeOffset expiry = default(DateTimeOffset))
+        /// <param name="updatedAt">The date and time at which the password was successfully updated (required).</param>
+        /// <param name="links">links.</param>
+        public SetPasswordResponse(DateTimeOffset updatedAt = default(DateTimeOffset), List<Link> links = default(List<Link>))
         {
-            this.Expiry = expiry;
+            this.UpdatedAt = updatedAt;
+            this.Links = links;
         }
 
         /// <summary>
-        /// DateTimeOffset at which the access will be revoked
+        /// The date and time at which the password was successfully updated
         /// </summary>
-        /// <value>DateTimeOffset at which the access will be revoked</value>
-        [DataMember(Name = "expiry", IsRequired = true, EmitDefaultValue = false)]
-        public DateTimeOffset Expiry { get; set; }
+        /// <value>The date and time at which the password was successfully updated</value>
+        [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = false)]
+        public DateTimeOffset UpdatedAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name = "links", EmitDefaultValue = true)]
+        public List<Link> Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,8 +68,9 @@ namespace Finbourne.Identity.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SupportAccessExpiry {\n");
-            sb.Append("  Expiry: ").Append(Expiry).Append("\n");
+            sb.Append("class SetPasswordResponse {\n");
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,24 +91,30 @@ namespace Finbourne.Identity.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SupportAccessExpiry);
+            return this.Equals(input as SetPasswordResponse);
         }
 
         /// <summary>
-        /// Returns true if SupportAccessExpiry instances are equal
+        /// Returns true if SetPasswordResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of SupportAccessExpiry to be compared</param>
+        /// <param name="input">Instance of SetPasswordResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SupportAccessExpiry input)
+        public bool Equals(SetPasswordResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Expiry == input.Expiry ||
-                    (this.Expiry != null &&
-                    this.Expiry.Equals(input.Expiry))
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -112,8 +127,10 @@ namespace Finbourne.Identity.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Expiry != null)
-                    hashCode = hashCode * 59 + this.Expiry.GetHashCode();
+                if (this.UpdatedAt != null)
+                    hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
+                if (this.Links != null)
+                    hashCode = hashCode * 59 + this.Links.GetHashCode();
                 return hashCode;
             }
         }

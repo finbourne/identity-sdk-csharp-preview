@@ -27,31 +27,33 @@ using OpenAPIDateConverter = Finbourne.Identity.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Identity.Sdk.Model
 {
     /// <summary>
-    /// Time at which the support access expires
+    /// AddScimResponse
     /// </summary>
-    [DataContract(Name = "SupportAccessExpiry")]
-    public partial class SupportAccessExpiry : IEquatable<SupportAccessExpiry>
+    [DataContract(Name = "AddScimResponse")]
+    public partial class AddScimResponse : IEquatable<AddScimResponse>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SupportAccessExpiry" /> class.
+        /// Initializes a new instance of the <see cref="AddScimResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected SupportAccessExpiry() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SupportAccessExpiry" /> class.
-        /// </summary>
-        /// <param name="expiry">DateTimeOffset at which the access will be revoked (required).</param>
-        public SupportAccessExpiry(DateTimeOffset expiry = default(DateTimeOffset))
+        /// <param name="baseUrl">baseUrl.</param>
+        /// <param name="apiToken">apiToken.</param>
+        public AddScimResponse(string baseUrl = default(string), string apiToken = default(string))
         {
-            this.Expiry = expiry;
+            this.BaseUrl = baseUrl;
+            this.ApiToken = apiToken;
         }
 
         /// <summary>
-        /// DateTimeOffset at which the access will be revoked
+        /// Gets or Sets BaseUrl
         /// </summary>
-        /// <value>DateTimeOffset at which the access will be revoked</value>
-        [DataMember(Name = "expiry", IsRequired = true, EmitDefaultValue = false)]
-        public DateTimeOffset Expiry { get; set; }
+        [DataMember(Name = "baseUrl", EmitDefaultValue = true)]
+        public string BaseUrl { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ApiToken
+        /// </summary>
+        [DataMember(Name = "apiToken", EmitDefaultValue = true)]
+        public string ApiToken { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,8 +62,9 @@ namespace Finbourne.Identity.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SupportAccessExpiry {\n");
-            sb.Append("  Expiry: ").Append(Expiry).Append("\n");
+            sb.Append("class AddScimResponse {\n");
+            sb.Append("  BaseUrl: ").Append(BaseUrl).Append("\n");
+            sb.Append("  ApiToken: ").Append(ApiToken).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,24 +85,29 @@ namespace Finbourne.Identity.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SupportAccessExpiry);
+            return this.Equals(input as AddScimResponse);
         }
 
         /// <summary>
-        /// Returns true if SupportAccessExpiry instances are equal
+        /// Returns true if AddScimResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of SupportAccessExpiry to be compared</param>
+        /// <param name="input">Instance of AddScimResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SupportAccessExpiry input)
+        public bool Equals(AddScimResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Expiry == input.Expiry ||
-                    (this.Expiry != null &&
-                    this.Expiry.Equals(input.Expiry))
+                    this.BaseUrl == input.BaseUrl ||
+                    (this.BaseUrl != null &&
+                    this.BaseUrl.Equals(input.BaseUrl))
+                ) && 
+                (
+                    this.ApiToken == input.ApiToken ||
+                    (this.ApiToken != null &&
+                    this.ApiToken.Equals(input.ApiToken))
                 );
         }
 
@@ -112,8 +120,10 @@ namespace Finbourne.Identity.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Expiry != null)
-                    hashCode = hashCode * 59 + this.Expiry.GetHashCode();
+                if (this.BaseUrl != null)
+                    hashCode = hashCode * 59 + this.BaseUrl.GetHashCode();
+                if (this.ApiToken != null)
+                    hashCode = hashCode * 59 + this.ApiToken.GetHashCode();
                 return hashCode;
             }
         }

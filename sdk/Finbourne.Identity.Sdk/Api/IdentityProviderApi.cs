@@ -24,105 +24,113 @@ namespace Finbourne.Identity.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IApplicationMetadataApiSync : IApiAccessor
+    public interface IIdentityProviderApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] GetRegistrationAvailability: Check Registration availability
+        /// [EXPERIMENTAL] AddScim: Add SCIM
         /// </summary>
         /// <remarks>
-        /// Identify whether there registrations service is available
+        /// Generates an API token to be used for SCIM
         /// </remarks>
         /// <exception cref="Finbourne.Identity.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>string</returns>
-        string GetRegistrationAvailability();
+        /// <param name="apiTokenAction">The action to take. For the API token. Defaults to \&quot;ensure\&quot; (optional)</param>
+        /// <param name="oldApiTokenDeactivation">Optional deactivation date for the old API token. Only used if apiTokenAction is \&quot;regenerate\&quot; (optional)</param>
+        /// <returns>AddScimResponse</returns>
+        AddScimResponse AddScim(string apiTokenAction = default(string), DateTimeOffset? oldApiTokenDeactivation = default(DateTimeOffset?));
 
         /// <summary>
-        /// [EARLY ACCESS] GetRegistrationAvailability: Check Registration availability
+        /// [EXPERIMENTAL] AddScim: Add SCIM
         /// </summary>
         /// <remarks>
-        /// Identify whether there registrations service is available
+        /// Generates an API token to be used for SCIM
         /// </remarks>
         /// <exception cref="Finbourne.Identity.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> GetRegistrationAvailabilityWithHttpInfo();
+        /// <param name="apiTokenAction">The action to take. For the API token. Defaults to \&quot;ensure\&quot; (optional)</param>
+        /// <param name="oldApiTokenDeactivation">Optional deactivation date for the old API token. Only used if apiTokenAction is \&quot;regenerate\&quot; (optional)</param>
+        /// <returns>ApiResponse of AddScimResponse</returns>
+        ApiResponse<AddScimResponse> AddScimWithHttpInfo(string apiTokenAction = default(string), DateTimeOffset? oldApiTokenDeactivation = default(DateTimeOffset?));
         /// <summary>
-        /// [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
+        /// [EXPERIMENTAL] RemoveScim: Remove SCIM
         /// </summary>
         /// <remarks>
-        /// Get the comprehensive set of resources that are available for access control
+        /// Deactivates any existing SCIM API token
         /// </remarks>
         /// <exception cref="Finbourne.Identity.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ResourceListOfAccessControlledResource</returns>
-        ResourceListOfAccessControlledResource ListAccessControlledResources();
+        /// <returns></returns>
+        void RemoveScim();
 
         /// <summary>
-        /// [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
+        /// [EXPERIMENTAL] RemoveScim: Remove SCIM
         /// </summary>
         /// <remarks>
-        /// Get the comprehensive set of resources that are available for access control
+        /// Deactivates any existing SCIM API token
         /// </remarks>
         /// <exception cref="Finbourne.Identity.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ResourceListOfAccessControlledResource</returns>
-        ApiResponse<ResourceListOfAccessControlledResource> ListAccessControlledResourcesWithHttpInfo();
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> RemoveScimWithHttpInfo();
         #endregion Synchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IApplicationMetadataApiAsync : IApiAccessor
+    public interface IIdentityProviderApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] GetRegistrationAvailability: Check Registration availability
+        /// [EXPERIMENTAL] AddScim: Add SCIM
         /// </summary>
         /// <remarks>
-        /// Identify whether there registrations service is available
+        /// Generates an API token to be used for SCIM
         /// </remarks>
         /// <exception cref="Finbourne.Identity.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="apiTokenAction">The action to take. For the API token. Defaults to \&quot;ensure\&quot; (optional)</param>
+        /// <param name="oldApiTokenDeactivation">Optional deactivation date for the old API token. Only used if apiTokenAction is \&quot;regenerate\&quot; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetRegistrationAvailabilityAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of AddScimResponse</returns>
+        System.Threading.Tasks.Task<AddScimResponse> AddScimAsync(string apiTokenAction = default(string), DateTimeOffset? oldApiTokenDeactivation = default(DateTimeOffset?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetRegistrationAvailability: Check Registration availability
+        /// [EXPERIMENTAL] AddScim: Add SCIM
         /// </summary>
         /// <remarks>
-        /// Identify whether there registrations service is available
+        /// Generates an API token to be used for SCIM
         /// </remarks>
         /// <exception cref="Finbourne.Identity.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="apiTokenAction">The action to take. For the API token. Defaults to \&quot;ensure\&quot; (optional)</param>
+        /// <param name="oldApiTokenDeactivation">Optional deactivation date for the old API token. Only used if apiTokenAction is \&quot;regenerate\&quot; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> GetRegistrationAvailabilityWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (AddScimResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AddScimResponse>> AddScimWithHttpInfoAsync(string apiTokenAction = default(string), DateTimeOffset? oldApiTokenDeactivation = default(DateTimeOffset?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
+        /// [EXPERIMENTAL] RemoveScim: Remove SCIM
         /// </summary>
         /// <remarks>
-        /// Get the comprehensive set of resources that are available for access control
+        /// Deactivates any existing SCIM API token
         /// </remarks>
         /// <exception cref="Finbourne.Identity.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ResourceListOfAccessControlledResource</returns>
-        System.Threading.Tasks.Task<ResourceListOfAccessControlledResource> ListAccessControlledResourcesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task RemoveScimAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
+        /// [EXPERIMENTAL] RemoveScim: Remove SCIM
         /// </summary>
         /// <remarks>
-        /// Get the comprehensive set of resources that are available for access control
+        /// Deactivates any existing SCIM API token
         /// </remarks>
         /// <exception cref="Finbourne.Identity.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ResourceListOfAccessControlledResource)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfAccessControlledResource>> ListAccessControlledResourcesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> RemoveScimWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IApplicationMetadataApi : IApplicationMetadataApiSync, IApplicationMetadataApiAsync
+    public interface IIdentityProviderApi : IIdentityProviderApiSync, IIdentityProviderApiAsync
     {
 
     }
@@ -130,23 +138,23 @@ namespace Finbourne.Identity.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class ApplicationMetadataApi : IApplicationMetadataApi
+    public partial class IdentityProviderApi : IIdentityProviderApi
     {
         private Finbourne.Identity.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApplicationMetadataApi"/> class.
+        /// Initializes a new instance of the <see cref="IdentityProviderApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public ApplicationMetadataApi() : this((string)null)
+        public IdentityProviderApi() : this((string)null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApplicationMetadataApi"/> class.
+        /// Initializes a new instance of the <see cref="IdentityProviderApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public ApplicationMetadataApi(String basePath)
+        public IdentityProviderApi(String basePath)
         {
             this.Configuration = Finbourne.Identity.Sdk.Client.Configuration.MergeConfigurations(
                 Finbourne.Identity.Sdk.Client.GlobalConfiguration.Instance,
@@ -158,12 +166,12 @@ namespace Finbourne.Identity.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApplicationMetadataApi"/> class
+        /// Initializes a new instance of the <see cref="IdentityProviderApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public ApplicationMetadataApi(Finbourne.Identity.Sdk.Client.Configuration configuration)
+        public IdentityProviderApi(Finbourne.Identity.Sdk.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -174,13 +182,13 @@ namespace Finbourne.Identity.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApplicationMetadataApi"/> class
+        /// Initializes a new instance of the <see cref="IdentityProviderApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public ApplicationMetadataApi(Finbourne.Identity.Sdk.Client.ISynchronousClient client, Finbourne.Identity.Sdk.Client.IAsynchronousClient asyncClient, Finbourne.Identity.Sdk.Client.IReadableConfiguration configuration)
+        public IdentityProviderApi(Finbourne.Identity.Sdk.Client.ISynchronousClient client, Finbourne.Identity.Sdk.Client.IAsynchronousClient asyncClient, Finbourne.Identity.Sdk.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -234,22 +242,26 @@ namespace Finbourne.Identity.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetRegistrationAvailability: Check Registration availability Identify whether there registrations service is available
+        /// [EXPERIMENTAL] AddScim: Add SCIM Generates an API token to be used for SCIM
         /// </summary>
         /// <exception cref="Finbourne.Identity.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>string</returns>
-        public string GetRegistrationAvailability()
+        /// <param name="apiTokenAction">The action to take. For the API token. Defaults to \&quot;ensure\&quot; (optional)</param>
+        /// <param name="oldApiTokenDeactivation">Optional deactivation date for the old API token. Only used if apiTokenAction is \&quot;regenerate\&quot; (optional)</param>
+        /// <returns>AddScimResponse</returns>
+        public AddScimResponse AddScim(string apiTokenAction = default(string), DateTimeOffset? oldApiTokenDeactivation = default(DateTimeOffset?))
         {
-            Finbourne.Identity.Sdk.Client.ApiResponse<string> localVarResponse = GetRegistrationAvailabilityWithHttpInfo();
+            Finbourne.Identity.Sdk.Client.ApiResponse<AddScimResponse> localVarResponse = AddScimWithHttpInfo(apiTokenAction, oldApiTokenDeactivation);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetRegistrationAvailability: Check Registration availability Identify whether there registrations service is available
+        /// [EXPERIMENTAL] AddScim: Add SCIM Generates an API token to be used for SCIM
         /// </summary>
         /// <exception cref="Finbourne.Identity.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of string</returns>
-        public Finbourne.Identity.Sdk.Client.ApiResponse<string> GetRegistrationAvailabilityWithHttpInfo()
+        /// <param name="apiTokenAction">The action to take. For the API token. Defaults to \&quot;ensure\&quot; (optional)</param>
+        /// <param name="oldApiTokenDeactivation">Optional deactivation date for the old API token. Only used if apiTokenAction is \&quot;regenerate\&quot; (optional)</param>
+        /// <returns>ApiResponse of AddScimResponse</returns>
+        public Finbourne.Identity.Sdk.Client.ApiResponse<AddScimResponse> AddScimWithHttpInfo(string apiTokenAction = default(string), DateTimeOffset? oldApiTokenDeactivation = default(DateTimeOffset?))
         {
             Finbourne.Identity.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Identity.Sdk.Client.RequestOptions();
 
@@ -269,6 +281,14 @@ namespace Finbourne.Identity.Sdk.Api
             var localVarAccept = Finbourne.Identity.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (apiTokenAction != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Identity.Sdk.Client.ClientUtils.ParameterToMultiMap("", "apiTokenAction", apiTokenAction));
+            }
+            if (oldApiTokenDeactivation != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Identity.Sdk.Client.ClientUtils.ParameterToMultiMap("", "oldApiTokenDeactivation", oldApiTokenDeactivation));
+            }
 
             // authentication (oauth2) required
             // oauth required
@@ -282,11 +302,11 @@ namespace Finbourne.Identity.Sdk.Api
             localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "0.0.1781");
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<string>("/api/metadata/eap", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<AddScimResponse>("/api/identityprovider/scim", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRegistrationAvailability", localVarResponse);
+                Exception _exception = this.ExceptionFactory("AddScim", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -294,24 +314,28 @@ namespace Finbourne.Identity.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetRegistrationAvailability: Check Registration availability Identify whether there registrations service is available
+        /// [EXPERIMENTAL] AddScim: Add SCIM Generates an API token to be used for SCIM
         /// </summary>
         /// <exception cref="Finbourne.Identity.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="apiTokenAction">The action to take. For the API token. Defaults to \&quot;ensure\&quot; (optional)</param>
+        /// <param name="oldApiTokenDeactivation">Optional deactivation date for the old API token. Only used if apiTokenAction is \&quot;regenerate\&quot; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetRegistrationAvailabilityAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of AddScimResponse</returns>
+        public async System.Threading.Tasks.Task<AddScimResponse> AddScimAsync(string apiTokenAction = default(string), DateTimeOffset? oldApiTokenDeactivation = default(DateTimeOffset?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Identity.Sdk.Client.ApiResponse<string> localVarResponse = await GetRegistrationAvailabilityWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Finbourne.Identity.Sdk.Client.ApiResponse<AddScimResponse> localVarResponse = await AddScimWithHttpInfoAsync(apiTokenAction, oldApiTokenDeactivation, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetRegistrationAvailability: Check Registration availability Identify whether there registrations service is available
+        /// [EXPERIMENTAL] AddScim: Add SCIM Generates an API token to be used for SCIM
         /// </summary>
         /// <exception cref="Finbourne.Identity.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="apiTokenAction">The action to take. For the API token. Defaults to \&quot;ensure\&quot; (optional)</param>
+        /// <param name="oldApiTokenDeactivation">Optional deactivation date for the old API token. Only used if apiTokenAction is \&quot;regenerate\&quot; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Identity.Sdk.Client.ApiResponse<string>> GetRegistrationAvailabilityWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (AddScimResponse)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Identity.Sdk.Client.ApiResponse<AddScimResponse>> AddScimWithHttpInfoAsync(string apiTokenAction = default(string), DateTimeOffset? oldApiTokenDeactivation = default(DateTimeOffset?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Finbourne.Identity.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Identity.Sdk.Client.RequestOptions();
@@ -333,6 +357,14 @@ namespace Finbourne.Identity.Sdk.Api
             var localVarAccept = Finbourne.Identity.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (apiTokenAction != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Identity.Sdk.Client.ClientUtils.ParameterToMultiMap("", "apiTokenAction", apiTokenAction));
+            }
+            if (oldApiTokenDeactivation != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Identity.Sdk.Client.ClientUtils.ParameterToMultiMap("", "oldApiTokenDeactivation", oldApiTokenDeactivation));
+            }
 
             // authentication (oauth2) required
             // oauth required
@@ -347,11 +379,11 @@ namespace Finbourne.Identity.Sdk.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/api/metadata/eap", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<AddScimResponse>("/api/identityprovider/scim", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRegistrationAvailability", localVarResponse);
+                Exception _exception = this.ExceptionFactory("AddScim", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -359,22 +391,21 @@ namespace Finbourne.Identity.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control Get the comprehensive set of resources that are available for access control
+        /// [EXPERIMENTAL] RemoveScim: Remove SCIM Deactivates any existing SCIM API token
         /// </summary>
         /// <exception cref="Finbourne.Identity.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ResourceListOfAccessControlledResource</returns>
-        public ResourceListOfAccessControlledResource ListAccessControlledResources()
+        /// <returns></returns>
+        public void RemoveScim()
         {
-            Finbourne.Identity.Sdk.Client.ApiResponse<ResourceListOfAccessControlledResource> localVarResponse = ListAccessControlledResourcesWithHttpInfo();
-            return localVarResponse.Data;
+            RemoveScimWithHttpInfo();
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control Get the comprehensive set of resources that are available for access control
+        /// [EXPERIMENTAL] RemoveScim: Remove SCIM Deactivates any existing SCIM API token
         /// </summary>
         /// <exception cref="Finbourne.Identity.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ResourceListOfAccessControlledResource</returns>
-        public Finbourne.Identity.Sdk.Client.ApiResponse<ResourceListOfAccessControlledResource> ListAccessControlledResourcesWithHttpInfo()
+        /// <returns>ApiResponse of Object(void)</returns>
+        public Finbourne.Identity.Sdk.Client.ApiResponse<Object> RemoveScimWithHttpInfo()
         {
             Finbourne.Identity.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Identity.Sdk.Client.RequestOptions();
 
@@ -383,9 +414,7 @@ namespace Finbourne.Identity.Sdk.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
+                "application/json"
             };
 
             var localVarContentType = Finbourne.Identity.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -407,11 +436,11 @@ namespace Finbourne.Identity.Sdk.Api
             localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "0.0.1781");
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ResourceListOfAccessControlledResource>("/api/metadata/access/resources", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<Object>("/api/identityprovider/scim", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListAccessControlledResources", localVarResponse);
+                Exception _exception = this.ExceptionFactory("RemoveScim", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -419,24 +448,23 @@ namespace Finbourne.Identity.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control Get the comprehensive set of resources that are available for access control
+        /// [EXPERIMENTAL] RemoveScim: Remove SCIM Deactivates any existing SCIM API token
         /// </summary>
         /// <exception cref="Finbourne.Identity.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ResourceListOfAccessControlledResource</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfAccessControlledResource> ListAccessControlledResourcesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task RemoveScimAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Identity.Sdk.Client.ApiResponse<ResourceListOfAccessControlledResource> localVarResponse = await ListAccessControlledResourcesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
+            await RemoveScimWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control Get the comprehensive set of resources that are available for access control
+        /// [EXPERIMENTAL] RemoveScim: Remove SCIM Deactivates any existing SCIM API token
         /// </summary>
         /// <exception cref="Finbourne.Identity.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ResourceListOfAccessControlledResource)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Identity.Sdk.Client.ApiResponse<ResourceListOfAccessControlledResource>> ListAccessControlledResourcesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Identity.Sdk.Client.ApiResponse<Object>> RemoveScimWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Finbourne.Identity.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Identity.Sdk.Client.RequestOptions();
@@ -446,9 +474,7 @@ namespace Finbourne.Identity.Sdk.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
+                "application/json"
             };
 
 
@@ -472,11 +498,11 @@ namespace Finbourne.Identity.Sdk.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfAccessControlledResource>("/api/metadata/access/resources", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/api/identityprovider/scim", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListAccessControlledResources", localVarResponse);
+                Exception _exception = this.ExceptionFactory("RemoveScim", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

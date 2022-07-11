@@ -6,14 +6,14 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateUser**](UsersApi.md#createuser) | **POST** /api/users | [EARLY ACCESS] CreateUser: Create User
 [**DeleteUser**](UsersApi.md#deleteuser) | **DELETE** /api/users/{id} | [EARLY ACCESS] DeleteUser: Delete User
-[**ExpirePassword**](UsersApi.md#expirepassword) | **POST** /api/users/{id}/lifecycle/$expirepassword | [BETA] ExpirePassword: Reset the user&#39;s password to a temporary one
+[**ExpirePassword**](UsersApi.md#expirepassword) | **POST** /api/users/{id}/lifecycle/$expirepassword | [EARLY ACCESS] ExpirePassword: Reset the user&#39;s password to a temporary one
 [**FindUsersById**](UsersApi.md#findusersbyid) | **GET** /api/directory | [EARLY ACCESS] FindUsersById: Find users by id endpoint
 [**GetUser**](UsersApi.md#getuser) | **GET** /api/users/{id} | [EARLY ACCESS] GetUser: Get User
 [**ListUsers**](UsersApi.md#listusers) | **GET** /api/users | [EARLY ACCESS] ListUsers: List Users
-[**ResetFactors**](UsersApi.md#resetfactors) | **POST** /api/users/{id}/lifecycle/$resetfactors | [BETA] ResetFactors: Reset MFA factors
-[**ResetPassword**](UsersApi.md#resetpassword) | **POST** /api/users/{id}/lifecycle/$resetpassword | [BETA] ResetPassword: Reset Password
-[**SendActivationEmail**](UsersApi.md#sendactivationemail) | **POST** /api/users/{id}/lifecycle/$activate | [BETA] SendActivationEmail: Sends an activation email to the User
-[**UnlockUser**](UsersApi.md#unlockuser) | **POST** /api/users/{id}/lifecycle/$unlock | [BETA] UnlockUser: Unlock User
+[**ResetFactors**](UsersApi.md#resetfactors) | **POST** /api/users/{id}/lifecycle/$resetfactors | [EARLY ACCESS] ResetFactors: Reset MFA factors
+[**ResetPassword**](UsersApi.md#resetpassword) | **POST** /api/users/{id}/lifecycle/$resetpassword | [EARLY ACCESS] ResetPassword: Reset Password
+[**SendActivationEmail**](UsersApi.md#sendactivationemail) | **POST** /api/users/{id}/lifecycle/$activate | [EARLY ACCESS] SendActivationEmail: Sends an activation email to the User
+[**UnlockUser**](UsersApi.md#unlockuser) | **POST** /api/users/{id}/lifecycle/$unlock | [EARLY ACCESS] UnlockUser: Unlock User
 [**UpdateUser**](UsersApi.md#updateuser) | **PUT** /api/users/{id} | [EARLY ACCESS] UpdateUser: Update User
 
 
@@ -176,7 +176,7 @@ void (empty response body)
 # **ExpirePassword**
 > TemporaryPassword ExpirePassword (string id)
 
-[BETA] ExpirePassword: Reset the user's password to a temporary one
+[EARLY ACCESS] ExpirePassword: Reset the user's password to a temporary one
 
 Resets the user's password to a temporary one which is then expired
 
@@ -204,7 +204,7 @@ namespace Example
 
             try
             {
-                // [BETA] ExpirePassword: Reset the user's password to a temporary one
+                // [EARLY ACCESS] ExpirePassword: Reset the user's password to a temporary one
                 TemporaryPassword result = apiInstance.ExpirePassword(id);
                 Debug.WriteLine(result);
             }
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 # **ResetFactors**
 > void ResetFactors (string id)
 
-[BETA] ResetFactors: Reset MFA factors
+[EARLY ACCESS] ResetFactors: Reset MFA factors
 
 Resets the MFA factors of the specified User
 
@@ -512,7 +512,7 @@ namespace Example
 
             try
             {
-                // [BETA] ResetFactors: Reset MFA factors
+                // [EARLY ACCESS] ResetFactors: Reset MFA factors
                 apiInstance.ResetFactors(id);
             }
             catch (ApiException  e)
@@ -559,7 +559,7 @@ void (empty response body)
 # **ResetPassword**
 > void ResetPassword (string id)
 
-[BETA] ResetPassword: Reset Password
+[EARLY ACCESS] ResetPassword: Reset Password
 
 Resets the password of the specified User
 
@@ -587,7 +587,7 @@ namespace Example
 
             try
             {
-                // [BETA] ResetPassword: Reset Password
+                // [EARLY ACCESS] ResetPassword: Reset Password
                 apiInstance.ResetPassword(id);
             }
             catch (ApiException  e)
@@ -634,7 +634,7 @@ void (empty response body)
 # **SendActivationEmail**
 > void SendActivationEmail (string id)
 
-[BETA] SendActivationEmail: Sends an activation email to the User
+[EARLY ACCESS] SendActivationEmail: Sends an activation email to the User
 
 Sends an activation email to the specified User
 
@@ -662,7 +662,7 @@ namespace Example
 
             try
             {
-                // [BETA] SendActivationEmail: Sends an activation email to the User
+                // [EARLY ACCESS] SendActivationEmail: Sends an activation email to the User
                 apiInstance.SendActivationEmail(id);
             }
             catch (ApiException  e)
@@ -709,7 +709,7 @@ void (empty response body)
 # **UnlockUser**
 > void UnlockUser (string id)
 
-[BETA] UnlockUser: Unlock User
+[EARLY ACCESS] UnlockUser: Unlock User
 
 Unlocks the specified User
 
@@ -737,7 +737,7 @@ namespace Example
 
             try
             {
-                // [BETA] UnlockUser: Unlock User
+                // [EARLY ACCESS] UnlockUser: Unlock User
                 apiInstance.UnlockUser(id);
             }
             catch (ApiException  e)

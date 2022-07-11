@@ -27,31 +27,32 @@ using OpenAPIDateConverter = Finbourne.Identity.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Identity.Sdk.Model
 {
     /// <summary>
-    /// Time at which the support access expires
+    /// Set password request
     /// </summary>
-    [DataContract(Name = "SupportAccessExpiry")]
-    public partial class SupportAccessExpiry : IEquatable<SupportAccessExpiry>
+    [DataContract(Name = "SetPassword")]
+    public partial class SetPassword : IEquatable<SetPassword>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SupportAccessExpiry" /> class.
+        /// Initializes a new instance of the <see cref="SetPassword" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected SupportAccessExpiry() { }
+        protected SetPassword() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="SupportAccessExpiry" /> class.
+        /// Initializes a new instance of the <see cref="SetPassword" /> class.
         /// </summary>
-        /// <param name="expiry">DateTimeOffset at which the access will be revoked (required).</param>
-        public SupportAccessExpiry(DateTimeOffset expiry = default(DateTimeOffset))
+        /// <param name="value">The value of the new password (required).</param>
+        public SetPassword(string value = default(string))
         {
-            this.Expiry = expiry;
+            // to ensure "value" is required (not null)
+            this.Value = value ?? throw new ArgumentNullException("value is a required property for SetPassword and cannot be null");
         }
 
         /// <summary>
-        /// DateTimeOffset at which the access will be revoked
+        /// The value of the new password
         /// </summary>
-        /// <value>DateTimeOffset at which the access will be revoked</value>
-        [DataMember(Name = "expiry", IsRequired = true, EmitDefaultValue = false)]
-        public DateTimeOffset Expiry { get; set; }
+        /// <value>The value of the new password</value>
+        [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = false)]
+        public string Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,8 +61,8 @@ namespace Finbourne.Identity.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SupportAccessExpiry {\n");
-            sb.Append("  Expiry: ").Append(Expiry).Append("\n");
+            sb.Append("class SetPassword {\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,24 +83,24 @@ namespace Finbourne.Identity.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SupportAccessExpiry);
+            return this.Equals(input as SetPassword);
         }
 
         /// <summary>
-        /// Returns true if SupportAccessExpiry instances are equal
+        /// Returns true if SetPassword instances are equal
         /// </summary>
-        /// <param name="input">Instance of SupportAccessExpiry to be compared</param>
+        /// <param name="input">Instance of SetPassword to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SupportAccessExpiry input)
+        public bool Equals(SetPassword input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Expiry == input.Expiry ||
-                    (this.Expiry != null &&
-                    this.Expiry.Equals(input.Expiry))
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 );
         }
 
@@ -112,8 +113,8 @@ namespace Finbourne.Identity.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Expiry != null)
-                    hashCode = hashCode * 59 + this.Expiry.GetHashCode();
+                if (this.Value != null)
+                    hashCode = hashCode * 59 + this.Value.GetHashCode();
                 return hashCode;
             }
         }
