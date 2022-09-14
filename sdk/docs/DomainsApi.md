@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 <a name="getagreement"></a>
 # **GetAgreement**
-> bool GetAgreement (string agreement)
+> void GetAgreement (string agreement)
 
 GetAgreement: Get Agreement
 
@@ -122,8 +122,7 @@ namespace Example
             try
             {
                 // GetAgreement: Get Agreement
-                bool result = apiInstance.GetAgreement(agreement);
-                Debug.WriteLine(result);
+                apiInstance.GetAgreement(agreement);
             }
             catch (ApiException  e)
             {
@@ -144,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**bool**
+void (empty response body)
 
 ### Authorization
 
@@ -159,8 +158,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | Whether agreement is signed |  -  |
+| **404** | The agreement is not signed |  -  |
+| **200** | The agreement is signed |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

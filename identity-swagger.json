@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.0.1869",
+    "version": "0.0.1871",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -1296,27 +1296,10 @@
         ],
         "responses": {
           "404": {
-            "description": "Not Found"
+            "description": "The agreement is not signed"
           },
           "200": {
-            "description": "Whether agreement is signed",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "boolean"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "boolean"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "boolean"
-                }
-              }
-            }
+            "description": "The agreement is signed"
           },
           "400": {
             "description": "The details of the input related failure",
