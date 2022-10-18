@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Id** | **string** | The user id | [optional] 
 **Login** | **string** | The user login | [optional] 
 **Email** | **string** | The email address registered for that user | [optional] 
+**SecondEmail** | **string** |  | [optional] 
 **FirstName** | **string** | User&#39;s first name | [optional] 
 **LastName** | **string** | User&#39;s last name | [optional] 
 **Type** | **string** | User&#39;s type (Personal, Service...) | [optional] 

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
 **EmailAddress** | **string** |  | 
+**SecondEmailAddress** | **string** |  | [optional] 
 **Login** | **string** | The user&#39;s login username, in the form of an email address, which must be unique within the system.  For user accounts this should exactly match the user&#39;s email address. | 
 **Roles** | [**List&lt;RoleId&gt;**](RoleId.md) |  | [optional] 
 
