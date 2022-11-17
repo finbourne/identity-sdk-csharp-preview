@@ -27,26 +27,25 @@ using OpenAPIDateConverter = Finbourne.Identity.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Identity.Sdk.Model
 {
     /// <summary>
-    /// UpdateRoleRequest
+    /// SupportRolesResponse
     /// </summary>
-    [DataContract(Name = "UpdateRoleRequest")]
-    public partial class UpdateRoleRequest : IEquatable<UpdateRoleRequest>
+    [DataContract(Name = "SupportRolesResponse")]
+    public partial class SupportRolesResponse : IEquatable<SupportRolesResponse>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateRoleRequest" /> class.
+        /// Initializes a new instance of the <see cref="SupportRolesResponse" /> class.
         /// </summary>
-        /// <param name="description">The description for this role.</param>
-        public UpdateRoleRequest(string description = default(string))
+        /// <param name="supportRoles">supportRoles.</param>
+        public SupportRolesResponse(List<SupportRole> supportRoles = default(List<SupportRole>))
         {
-            this.Description = description;
+            this.SupportRoles = supportRoles;
         }
 
         /// <summary>
-        /// The description for this role
+        /// Gets or Sets SupportRoles
         /// </summary>
-        /// <value>The description for this role</value>
-        [DataMember(Name = "description", EmitDefaultValue = true)]
-        public string Description { get; set; }
+        [DataMember(Name = "supportRoles", EmitDefaultValue = true)]
+        public List<SupportRole> SupportRoles { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,8 +54,8 @@ namespace Finbourne.Identity.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UpdateRoleRequest {\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("class SupportRolesResponse {\n");
+            sb.Append("  SupportRoles: ").Append(SupportRoles).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,24 +76,25 @@ namespace Finbourne.Identity.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpdateRoleRequest);
+            return this.Equals(input as SupportRolesResponse);
         }
 
         /// <summary>
-        /// Returns true if UpdateRoleRequest instances are equal
+        /// Returns true if SupportRolesResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpdateRoleRequest to be compared</param>
+        /// <param name="input">Instance of SupportRolesResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpdateRoleRequest input)
+        public bool Equals(SupportRolesResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.SupportRoles == input.SupportRoles ||
+                    this.SupportRoles != null &&
+                    input.SupportRoles != null &&
+                    this.SupportRoles.SequenceEqual(input.SupportRoles)
                 );
         }
 
@@ -107,8 +107,8 @@ namespace Finbourne.Identity.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.SupportRoles != null)
+                    hashCode = hashCode * 59 + this.SupportRoles.GetHashCode();
                 return hashCode;
             }
         }

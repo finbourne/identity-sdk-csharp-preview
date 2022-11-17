@@ -27,23 +27,26 @@ using OpenAPIDateConverter = Finbourne.Identity.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Identity.Sdk.Model
 {
     /// <summary>
-    /// Time at which the support access expires
+    /// Time at which the support access granted for a role expires
     /// </summary>
-    [DataContract(Name = "SupportAccessExpiry")]
-    public partial class SupportAccessExpiry : IEquatable<SupportAccessExpiry>
+    [DataContract(Name = "SupportAccessExpiryWithRole")]
+    public partial class SupportAccessExpiryWithRole : IEquatable<SupportAccessExpiryWithRole>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SupportAccessExpiry" /> class.
+        /// Initializes a new instance of the <see cref="SupportAccessExpiryWithRole" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected SupportAccessExpiry() { }
+        protected SupportAccessExpiryWithRole() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="SupportAccessExpiry" /> class.
+        /// Initializes a new instance of the <see cref="SupportAccessExpiryWithRole" /> class.
         /// </summary>
         /// <param name="expiry">DateTimeOffset at which the access will be revoked (required).</param>
-        public SupportAccessExpiry(DateTimeOffset expiry = default(DateTimeOffset))
+        /// <param name="permittedRole">Unique identifier for permitted role.   Use GET /identity/api/authentication/support-roles to lookup role label/code from identifier. (required).</param>
+        public SupportAccessExpiryWithRole(DateTimeOffset expiry = default(DateTimeOffset), string permittedRole = default(string))
         {
             this.Expiry = expiry;
+            // to ensure "permittedRole" is required (not null)
+            this.PermittedRole = permittedRole ?? throw new ArgumentNullException("permittedRole is a required property for SupportAccessExpiryWithRole and cannot be null");
         }
 
         /// <summary>
@@ -54,14 +57,22 @@ namespace Finbourne.Identity.Sdk.Model
         public DateTimeOffset Expiry { get; set; }
 
         /// <summary>
+        /// Unique identifier for permitted role.   Use GET /identity/api/authentication/support-roles to lookup role label/code from identifier.
+        /// </summary>
+        /// <value>Unique identifier for permitted role.   Use GET /identity/api/authentication/support-roles to lookup role label/code from identifier.</value>
+        [DataMember(Name = "permittedRole", IsRequired = true, EmitDefaultValue = false)]
+        public string PermittedRole { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SupportAccessExpiry {\n");
+            sb.Append("class SupportAccessExpiryWithRole {\n");
             sb.Append("  Expiry: ").Append(Expiry).Append("\n");
+            sb.Append("  PermittedRole: ").Append(PermittedRole).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,15 +93,15 @@ namespace Finbourne.Identity.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SupportAccessExpiry);
+            return this.Equals(input as SupportAccessExpiryWithRole);
         }
 
         /// <summary>
-        /// Returns true if SupportAccessExpiry instances are equal
+        /// Returns true if SupportAccessExpiryWithRole instances are equal
         /// </summary>
-        /// <param name="input">Instance of SupportAccessExpiry to be compared</param>
+        /// <param name="input">Instance of SupportAccessExpiryWithRole to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SupportAccessExpiry input)
+        public bool Equals(SupportAccessExpiryWithRole input)
         {
             if (input == null)
                 return false;
@@ -100,6 +111,11 @@ namespace Finbourne.Identity.Sdk.Model
                     this.Expiry == input.Expiry ||
                     (this.Expiry != null &&
                     this.Expiry.Equals(input.Expiry))
+                ) && 
+                (
+                    this.PermittedRole == input.PermittedRole ||
+                    (this.PermittedRole != null &&
+                    this.PermittedRole.Equals(input.PermittedRole))
                 );
         }
 
@@ -114,6 +130,8 @@ namespace Finbourne.Identity.Sdk.Model
                 int hashCode = 41;
                 if (this.Expiry != null)
                     hashCode = hashCode * 59 + this.Expiry.GetHashCode();
+                if (this.PermittedRole != null)
+                    hashCode = hashCode * 59 + this.PermittedRole.GetHashCode();
                 return hashCode;
             }
         }
