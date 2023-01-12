@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Label** | **string** |  | [optional] 
+**Description** | **string** |  | [optional] 
 **RoleIdentifier** | **Dictionary&lt;string, string&gt;** |  | [optional] 
 **InternalIdentifier** | **string** |  | [optional] 
 
