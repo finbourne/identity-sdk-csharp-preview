@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IssuerUrl** | **string** |  | 
+**FallbackIssuerUrls** | **List&lt;string&gt;** |  | [optional] 
 **SamlIdentityProviderId** | **string** |  | [optional] 
 **Support** | [**SupportAccessExpiry**](SupportAccessExpiry.md) |  | [optional] 
 **SupportAccessExpiryWithRole** | [**List&lt;SupportAccessExpiryWithRole&gt;**](SupportAccessExpiryWithRole.md) |  | [optional] 
