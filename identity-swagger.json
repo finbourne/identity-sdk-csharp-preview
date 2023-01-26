@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.0.2207",
+    "version": "0.0.2209",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -39,16 +39,7 @@
                     "$ref": "#/components/schemas/OAuthApplication"
                   }
                 },
-                "example": [
-  {
-    "id": "UniqueApplicationId",
-    "type": "Native",
-    "displayName": "Example Native Application",
-    "secret": "123456789",
-    "clientId": "my-example-native-app",
-    "issuer": "https://exampleiusser.lusid.com"
-  }
-]
+                "example": [{"id":"UniqueApplicationId","type":"Native","displayName":"Example Native Application","secret":"123456789","clientId":"my-example-native-app","issuer":"https://exampleiusser.lusid.com"}]
               }
             }
           },
@@ -84,41 +75,25 @@
               "schema": {
                 "$ref": "#/components/schemas/CreateApplicationRequest"
               },
-              "example": {
-  "displayName": "My First Application",
-  "clientId": "my-first-application",
-  "type": "Native"
-}
+              "example": {"displayName":"My First Application","clientId":"my-first-application","type":"Native"}
             },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateApplicationRequest"
               },
-              "example": {
-  "displayName": "My First Application",
-  "clientId": "my-first-application",
-  "type": "Native"
-}
+              "example": {"displayName":"My First Application","clientId":"my-first-application","type":"Native"}
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateApplicationRequest"
               },
-              "example": {
-  "displayName": "My First Application",
-  "clientId": "my-first-application",
-  "type": "Native"
-}
+              "example": {"displayName":"My First Application","clientId":"my-first-application","type":"Native"}
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateApplicationRequest"
               },
-              "example": {
-  "displayName": "My First Application",
-  "clientId": "my-first-application",
-  "type": "Native"
-}
+              "example": {"displayName":"My First Application","clientId":"my-first-application","type":"Native"}
             }
           }
         },
@@ -130,14 +105,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/OAuthApplication"
                 },
-                "example": {
-  "id": "UniqueApplicationId",
-  "type": "Native",
-  "displayName": "Example Native Application",
-  "secret": "123456789",
-  "clientId": "my-example-native-app",
-  "issuer": "https://exampleiusser.lusid.com"
-}
+                "example": {"id":"UniqueApplicationId","type":"Native","displayName":"Example Native Application","secret":"123456789","clientId":"my-example-native-app","issuer":"https://exampleiusser.lusid.com"}
               }
             }
           },
@@ -188,8 +156,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the application"
+              "type": "string"
             }
           },
           {
@@ -197,8 +164,7 @@
             "in": "query",
             "description": "Optional. If set to true, the application secrets will be returned in plain text",
             "schema": {
-              "type": "boolean",
-              "description": "Optional. If set to true, the application secrets will be returned in plain text"
+              "type": "boolean"
             },
             "x-nullable": true
           }
@@ -211,14 +177,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/OAuthApplication"
                 },
-                "example": {
-  "id": "UniqueApplicationId",
-  "type": "Native",
-  "displayName": "Example Native Application",
-  "secret": "123456789",
-  "clientId": "my-example-native-app",
-  "issuer": "https://exampleiusser.lusid.com"
-}
+                "example": {"id":"UniqueApplicationId","type":"Native","displayName":"Example Native Application","secret":"123456789","clientId":"my-example-native-app","issuer":"https://exampleiusser.lusid.com"}
               }
             }
           },
@@ -270,14 +229,13 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the application"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "400": {
             "description": "The details of the input related failure",
@@ -326,8 +284,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the application"
+              "type": "string"
             }
           }
         ],
@@ -339,14 +296,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/OAuthApplication"
                 },
-                "example": {
-  "id": "UniqueApplicationId",
-  "type": "Native",
-  "displayName": "Example Native Application",
-  "secret": "123456789",
-  "clientId": "my-example-native-app",
-  "issuer": "https://exampleiusser.lusid.com"
-}
+                "example": {"id":"UniqueApplicationId","type":"Native","displayName":"Example Native Application","secret":"123456789","clientId":"my-example-native-app","issuer":"https://exampleiusser.lusid.com"}
               }
             }
           },
@@ -395,11 +345,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/AuthenticationInformation"
                 },
-                "example": {
-  "issuerUrl": "https://myco.lusid.okta.com/12346",
-  "samlIdentityProviderId": "0oa14txx1jAiz7T302p7as",
-  "supportAccessExpiryWithRole": []
-}
+                "example": {"issuerUrl":"https://myco.lusid.okta.com/12346","samlIdentityProviderId":"0oa14txx1jAiz7T302p7as","supportAccessExpiryWithRole":[]}
               }
             }
           },
@@ -437,37 +383,25 @@
               "schema": {
                 "$ref": "#/components/schemas/SupportAccessRequest"
               },
-              "example": {
-  "duration": "PT24H",
-  "description": "Investigate issues detailed in support ticket 0604"
-}
+              "example": {"duration":"PT24H","description":"Investigate issues detailed in support ticket 0604"}
             },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SupportAccessRequest"
               },
-              "example": {
-  "duration": "PT24H",
-  "description": "Investigate issues detailed in support ticket 0604"
-}
+              "example": {"duration":"PT24H","description":"Investigate issues detailed in support ticket 0604"}
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/SupportAccessRequest"
               },
-              "example": {
-  "duration": "PT24H",
-  "description": "Investigate issues detailed in support ticket 0604"
-}
+              "example": {"duration":"PT24H","description":"Investigate issues detailed in support ticket 0604"}
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/SupportAccessRequest"
               },
-              "example": {
-  "duration": "PT24H",
-  "description": "Investigate issues detailed in support ticket 0604"
-}
+              "example": {"duration":"PT24H","description":"Investigate issues detailed in support ticket 0604"}
             }
           },
           "required": true
@@ -480,18 +414,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/SupportAccessResponse"
                 },
-                "example": {
-  "id": "37322a3efbf445fa861d39759ad22dcb",
-  "duration": "PT24H",
-  "description": "Investigate issues detailed in support ticket 0604",
-  "createdAt": "2020-01-06T12:05:00.0000000+00:00",
-  "expiry": "2020-01-07T12:05:00.0000000+00:00",
-  "createdBy": "UserId-54213",
-  "terminated": false,
-  "permittedRoles": [
-    "support-role"
-  ]
-}
+                "example": {"id":"37322a3efbf445fa861d39759ad22dcb","duration":"PT24H","description":"Investigate issues detailed in support ticket 0604","createdAt":"2020-01-06T12:05:00.0000000+00:00","expiry":"2020-01-07T12:05:00.0000000+00:00","createdBy":"UserId-54213","terminated":false,"permittedRoles":["support-role"]}
               }
             }
           },
@@ -541,34 +464,7 @@
                     "$ref": "#/components/schemas/SupportAccessResponse"
                   }
                 },
-                "example": [
-  {
-    "id": "37322a3efbf445fa861d39759ad22dcb",
-    "duration": "PT24H",
-    "description": "Investigate issues detailed in support ticket 0604",
-    "createdAt": "2020-01-06T12:05:00.0000000+00:00",
-    "expiry": "2020-01-07T12:05:00.0000000+00:00",
-    "createdBy": "UserId-54213",
-    "terminated": false,
-    "permittedRoles": [
-      "support-role"
-    ]
-  },
-  {
-    "id": "37322a3efbf445fa861d39759ad22dcb",
-    "duration": "PT24H",
-    "description": "Investigate issues detailed in support ticket 0604",
-    "createdAt": "2020-01-06T12:05:00.0000000+00:00",
-    "expiry": "2020-01-07T12:05:00.0000000+00:00",
-    "createdBy": "UserId-54213",
-    "terminated": true,
-    "terminatedAt": "2020-01-06T16:05:00.0000000+00:00",
-    "terminatedBy": "UserId-54213",
-    "permittedRoles": [
-      "support-role"
-    ]
-  }
-]
+                "example": [{"id":"37322a3efbf445fa861d39759ad22dcb","duration":"PT24H","description":"Investigate issues detailed in support ticket 0604","createdAt":"2020-01-06T12:05:00.0000000+00:00","expiry":"2020-01-07T12:05:00.0000000+00:00","createdBy":"UserId-54213","terminated":false,"permittedRoles":["support-role"]},{"id":"37322a3efbf445fa861d39759ad22dcb","duration":"PT24H","description":"Investigate issues detailed in support ticket 0604","createdAt":"2020-01-06T12:05:00.0000000+00:00","expiry":"2020-01-07T12:05:00.0000000+00:00","createdBy":"UserId-54213","terminated":true,"terminatedAt":"2020-01-06T16:05:00.0000000+00:00","terminatedBy":"UserId-54213","permittedRoles":["support-role"]}]
               }
             }
           },
@@ -608,34 +504,7 @@
                     "$ref": "#/components/schemas/SupportAccessResponse"
                   }
                 },
-                "example": [
-  {
-    "id": "37322a3efbf445fa861d39759ad22dcb",
-    "duration": "PT24H",
-    "description": "Investigate issues detailed in support ticket 0604",
-    "createdAt": "2020-01-06T12:05:00.0000000+00:00",
-    "expiry": "2020-01-07T12:05:00.0000000+00:00",
-    "createdBy": "UserId-54213",
-    "terminated": false,
-    "permittedRoles": [
-      "support-role"
-    ]
-  },
-  {
-    "id": "37322a3efbf445fa861d39759ad22dcb",
-    "duration": "PT24H",
-    "description": "Investigate issues detailed in support ticket 0604",
-    "createdAt": "2020-01-06T12:05:00.0000000+00:00",
-    "expiry": "2020-01-07T12:05:00.0000000+00:00",
-    "createdBy": "UserId-54213",
-    "terminated": true,
-    "terminatedAt": "2020-01-06T16:05:00.0000000+00:00",
-    "terminatedBy": "UserId-54213",
-    "permittedRoles": [
-      "support-role"
-    ]
-  }
-]
+                "example": [{"id":"37322a3efbf445fa861d39759ad22dcb","duration":"PT24H","description":"Investigate issues detailed in support ticket 0604","createdAt":"2020-01-06T12:05:00.0000000+00:00","expiry":"2020-01-07T12:05:00.0000000+00:00","createdBy":"UserId-54213","terminated":false,"permittedRoles":["support-role"]},{"id":"37322a3efbf445fa861d39759ad22dcb","duration":"PT24H","description":"Investigate issues detailed in support ticket 0604","createdAt":"2020-01-06T12:05:00.0000000+00:00","expiry":"2020-01-07T12:05:00.0000000+00:00","createdBy":"UserId-54213","terminated":true,"terminatedAt":"2020-01-06T16:05:00.0000000+00:00","terminatedBy":"UserId-54213","permittedRoles":["support-role"]}]
               }
             }
           },
@@ -674,19 +543,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/SupportRolesResponse"
                 },
-                "example": {
-  "supportRoles": [
-    {
-      "label": "support-role",
-      "description": "Description of support role",
-      "roleIdentifier": {
-        "scope": "scope",
-        "code": "code"
-      },
-      "internalIdentifier": "1"
-    }
-  ]
-}
+                "example": {"supportRoles":[{"label":"support-role","description":"Description of support role","roleIdentifier":{"scope":"scope","code":"code"},"internalIdentifier":"1"}]}
               }
             }
           },
@@ -727,8 +584,7 @@
               "type": "array",
               "items": {
                 "type": "string"
-              },
-              "description": "A list of unique identifiers for the users"
+              }
             }
           }
         ],
@@ -740,70 +596,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/ListUsersResponse"
                 },
-                "example": {
-  "href": "https://my-domain.lusid.com/access",
-  "values": {
-    "00ub0oNGTSWTBKOLGLNR": {
-      "id": "00ub0oNGTSWTBKOLGLNR",
-      "login": "dennis.sierra",
-      "email": "Dennis",
-      "firstName": "Sierra",
-      "lastName": "dennis.sierra@my-awesome-company.com",
-      "type": "Personal",
-      "links": [
-        {
-          "relation": "User",
-          "href": "https://my-domain.lusid.com/access/api/users/00ub0oNGTSWTBKOLGLNR?includeRoles=false",
-          "description": "A link to access the full details of this user",
-          "method": "GET"
-        },
-        {
-          "relation": "Activity",
-          "href": "https://my-domain.lusid.com/insights/api/requests?filter=user%20eq%20%2700ub0oNGTSWTBKOLGLNR%27",
-          "description": "A link to the LUSID Insights API to get all logs related to this user",
-          "method": "GET"
-        }
-      ]
-    },
-    "00uijntSwJjSHtDY70g3": {
-      "id": "00uijntSwJjSHtDY70g3",
-      "login": "rudi.kouma",
-      "email": "Rudi",
-      "firstName": "Kouma",
-      "lastName": "rudi.kouma@my-awesome-company.com",
-      "type": "Personal",
-      "links": [
-        {
-          "relation": "User",
-          "href": "https://my-domain.lusid.com/access/api/users/00uijntSwJjSHtDY70g3?includeRoles=false",
-          "description": "A link to access the full details of this user",
-          "method": "GET"
-        },
-        {
-          "relation": "Activity",
-          "href": "https://my-domain.lusid.com/insights/api/requests?filter=user%20eq%20%2700uijntSwJjSHtDY70g3%27",
-          "description": "A link to the LUSID Insights API to get all logs related to this user",
-          "method": "GET"
-        }
-      ]
-    }
-  },
-  "failed": {
-    "00u19uiKQa0xXkbdGLNR": {
-      "id": "00u19uiKQa0xXkbdGLNR",
-      "type": "UserDoesNotExist",
-      "detail": "The specified user cannot be found or has been deleted"
-    }
-  },
-  "links": [
-    {
-      "relation": "RequestLogs",
-      "href": "https://mydomain.lusid.com/app/insights/logs/0ABCDEFGHIJKL:00000001",
-      "description": "A link to the LUSID Insights website showing all logs related to this request",
-      "method": "GET"
-    }
-  ]
-}
+                "example": {"href":"https://my-domain.lusid.com/access","values":{"00ub0oNGTSWTBKOLGLNR":{"id":"00ub0oNGTSWTBKOLGLNR","login":"dennis.sierra","email":"Dennis","firstName":"Sierra","lastName":"dennis.sierra@my-awesome-company.com","type":"Personal","links":[{"relation":"User","href":"https://my-domain.lusid.com/access/api/users/00ub0oNGTSWTBKOLGLNR?includeRoles=false","description":"A link to access the full details of this user","method":"GET"},{"relation":"Activity","href":"https://my-domain.lusid.com/insights/api/requests?filter=user%20eq%20%2700ub0oNGTSWTBKOLGLNR%27","description":"A link to the LUSID Insights API to get all logs related to this user","method":"GET"}]},"00uijntSwJjSHtDY70g3":{"id":"00uijntSwJjSHtDY70g3","login":"rudi.kouma","email":"Rudi","firstName":"Kouma","lastName":"rudi.kouma@my-awesome-company.com","type":"Personal","links":[{"relation":"User","href":"https://my-domain.lusid.com/access/api/users/00uijntSwJjSHtDY70g3?includeRoles=false","description":"A link to access the full details of this user","method":"GET"},{"relation":"Activity","href":"https://my-domain.lusid.com/insights/api/requests?filter=user%20eq%20%2700uijntSwJjSHtDY70g3%27","description":"A link to the LUSID Insights API to get all logs related to this user","method":"GET"}]}},"failed":{"00u19uiKQa0xXkbdGLNR":{"id":"00u19uiKQa0xXkbdGLNR","type":"UserDoesNotExist","detail":"The specified user cannot be found or has been deleted"}},"links":[{"relation":"RequestLogs","href":"https://mydomain.lusid.com/app/insights/logs/0ABCDEFGHIJKL:00000001","description":"A link to the LUSID Insights website showing all logs related to this request","method":"GET"}]}
               }
             }
           },
@@ -850,9 +643,7 @@
             "in": "query",
             "description": "The action to take. For the API token. Defaults to \"ensure\"",
             "schema": {
-              "type": "string",
-              "description": "The action to take. For the API token. Defaults to \"ensure\"",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -861,9 +652,7 @@
             "description": "Optional deactivation date for the old API token. Only used if apiTokenAction is \"regenerate\"",
             "schema": {
               "type": "string",
-              "description": "Optional deactivation date for the old API token. Only used if apiTokenAction is \"regenerate\"",
-              "format": "date-time",
-              "nullable": true
+              "format": "date-time"
             },
             "x-nullable": true
           }
@@ -876,28 +665,19 @@
                 "schema": {
                   "$ref": "#/components/schemas/AddScimResponse"
                 },
-                "example": {
-  "baseUrl": "https://my-domain.lusid.com/identity/scim/v2",
-  "apiToken": "ba5e8bed1cbd92f3cc4a893a48141ff23617b258cb7f1407f3567d1f35d0f0e0"
-}
+                "example": {"baseUrl":"https://my-domain.lusid.com/identity/scim/v2","apiToken":"ba5e8bed1cbd92f3cc4a893a48141ff23617b258cb7f1407f3567d1f35d0f0e0"}
               },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AddScimResponse"
                 },
-                "example": {
-  "baseUrl": "https://my-domain.lusid.com/identity/scim/v2",
-  "apiToken": "ba5e8bed1cbd92f3cc4a893a48141ff23617b258cb7f1407f3567d1f35d0f0e0"
-}
+                "example": {"baseUrl":"https://my-domain.lusid.com/identity/scim/v2","apiToken":"ba5e8bed1cbd92f3cc4a893a48141ff23617b258cb7f1407f3567d1f35d0f0e0"}
               },
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AddScimResponse"
                 },
-                "example": {
-  "baseUrl": "https://my-domain.lusid.com/identity/scim/v2",
-  "apiToken": "ba5e8bed1cbd92f3cc4a893a48141ff23617b258cb7f1407f3567d1f35d0f0e0"
-}
+                "example": {"baseUrl":"https://my-domain.lusid.com/identity/scim/v2","apiToken":"ba5e8bed1cbd92f3cc4a893a48141ff23617b258cb7f1407f3567d1f35d0f0e0"}
               }
             }
           },
@@ -948,7 +728,7 @@
         "operationId": "RemoveScim",
         "responses": {
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "default": {
             "description": "Error response",
@@ -984,37 +764,25 @@
               "schema": {
                 "$ref": "#/components/schemas/CreateApiKey"
               },
-              "example": {
-  "displayName": "My API Key",
-  "deactivationDate": "2022-12-08T13:30:12.0000000+00:00"
-}
+              "example": {"displayName":"My API Key","deactivationDate":"2022-12-08T13:30:12.0000000+00:00"}
             },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateApiKey"
               },
-              "example": {
-  "displayName": "My API Key",
-  "deactivationDate": "2022-12-08T13:30:12.0000000+00:00"
-}
+              "example": {"displayName":"My API Key","deactivationDate":"2022-12-08T13:30:12.0000000+00:00"}
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateApiKey"
               },
-              "example": {
-  "displayName": "My API Key",
-  "deactivationDate": "2022-12-08T13:30:12.0000000+00:00"
-}
+              "example": {"displayName":"My API Key","deactivationDate":"2022-12-08T13:30:12.0000000+00:00"}
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateApiKey"
               },
-              "example": {
-  "displayName": "My API Key",
-  "deactivationDate": "2022-12-08T13:30:12.0000000+00:00"
-}
+              "example": {"displayName":"My API Key","deactivationDate":"2022-12-08T13:30:12.0000000+00:00"}
             }
           },
           "required": true
@@ -1027,13 +795,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/CreatedApiKey"
                 },
-                "example": {
-  "key": "ba5e8bed1cbd92f3cc4a893a48141ff23617b258cb7f1407f3567d1f35d0f0e0",
-  "id": "f45fcf4e7942422bb6c99ff74de30f40",
-  "displayName": "Automated system A's key",
-  "createdDate": "2020-01-01T00:00:00.0000000+00:00",
-  "deactivationDate": "2020-06-01T00:00:00.0000000+00:00"
-}
+                "example": {"key":"ba5e8bed1cbd92f3cc4a893a48141ff23617b258cb7f1407f3567d1f35d0f0e0","id":"f45fcf4e7942422bb6c99ff74de30f40","displayName":"Automated system A's key","createdDate":"2020-01-01T00:00:00.0000000+00:00","deactivationDate":"2020-06-01T00:00:00.0000000+00:00"}
               }
             }
           },
@@ -1083,26 +845,7 @@
                     "$ref": "#/components/schemas/ApiKey"
                   }
                 },
-                "example": [
-  {
-    "id": "f45fcf4e7942422bb6c99ff74de30f40",
-    "displayName": "Automated system A's key",
-    "createdDate": "2020-01-01T00:00:00.0000000+00:00",
-    "deactivationDate": "2020-06-01T00:00:00.0000000+00:00"
-  },
-  {
-    "id": "89762a35ce3649b5b92f47168611a534",
-    "displayName": "Automated system B's key",
-    "createdDate": "2020-01-02T00:00:00.0000000+00:00",
-    "deactivationDate": "2020-06-02T00:00:00.0000000+00:00"
-  },
-  {
-    "id": "bd772a807cab49c0bcac565c8dbd7a20",
-    "displayName": "Automated system C's key",
-    "createdDate": "2020-01-03T00:00:00.0000000+00:00",
-    "deactivationDate": "2020-06-03T00:00:00.0000000+00:00"
-  }
-]
+                "example": [{"id":"f45fcf4e7942422bb6c99ff74de30f40","displayName":"Automated system A's key","createdDate":"2020-01-01T00:00:00.0000000+00:00","deactivationDate":"2020-06-01T00:00:00.0000000+00:00"},{"id":"89762a35ce3649b5b92f47168611a534","displayName":"Automated system B's key","createdDate":"2020-01-02T00:00:00.0000000+00:00","deactivationDate":"2020-06-02T00:00:00.0000000+00:00"},{"id":"bd772a807cab49c0bcac565c8dbd7a20","displayName":"Automated system C's key","createdDate":"2020-01-03T00:00:00.0000000+00:00","deactivationDate":"2020-06-03T00:00:00.0000000+00:00"}]
               }
             }
           },
@@ -1143,8 +886,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The id of the Personal Access Token to delete"
+              "type": "string"
             }
           }
         ],
@@ -1156,12 +898,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiKey"
                 },
-                "example": {
-  "id": "f45fcf4e7942422bb6c99ff74de30f40",
-  "displayName": "Automated system A's key",
-  "createdDate": "2020-01-01T00:00:00.0000000+00:00",
-  "deactivationDate": "2020-08-01T00:00:00.0000000+00:00"
-}
+                "example": {"id":"f45fcf4e7942422bb6c99ff74de30f40","displayName":"Automated system A's key","createdDate":"2020-01-01T00:00:00.0000000+00:00","deactivationDate":"2020-08-01T00:00:00.0000000+00:00"}
               }
             }
           },
@@ -1210,11 +947,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/CurrentUserResponse"
                 },
-                "example": {
-  "id": "asybvrs5",
-  "emailAddress": "joe.bloggs@myco.com",
-  "type": "Personal"
-}
+                "example": {"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","type":"Personal"}
               }
             }
           },
@@ -1252,33 +985,25 @@
               "schema": {
                 "$ref": "#/components/schemas/SetPassword"
               },
-              "example": {
-  "value": ""
-}
+              "example": {"value":""}
             },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SetPassword"
               },
-              "example": {
-  "value": ""
-}
+              "example": {"value":""}
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/SetPassword"
               },
-              "example": {
-  "value": ""
-}
+              "example": {"value":""}
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/SetPassword"
               },
-              "example": {
-  "value": ""
-}
+              "example": {"value":""}
             }
           },
           "required": true
@@ -1291,9 +1016,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/SetPasswordResponse"
                 },
-                "example": {
-  "updatedAt": "2022-12-25T12:00:00.0000000+00:00"
-}
+                "example": {"updatedAt":"2022-12-25T12:00:00.0000000+00:00"}
               }
             }
           },
@@ -1393,18 +1116,7 @@
                     "$ref": "#/components/schemas/RoleResponse"
                   }
                 },
-                "example": [
-  {
-    "id": "asnvr5ne35",
-    "roleId": {
-      "scope": "LUSID",
-      "code": "FrontOfficeAdministrator"
-    },
-    "source": "LusidUser",
-    "name": "LUSID:FrontOfficeAdministrator",
-    "description": "Front office administration role"
-  }
-]
+                "example": [{"id":"asnvr5ne35","roleId":{"scope":"LUSID","code":"FrontOfficeAdministrator"},"source":"LusidUser","name":"LUSID:FrontOfficeAdministrator","description":"Front office administration role"}]
               }
             }
           },
@@ -1440,37 +1152,25 @@
               "schema": {
                 "$ref": "#/components/schemas/CreateRoleRequest"
               },
-              "example": {
-  "name": "LUSID:FrontOfficeAdministrator",
-  "description": "Front office administration role"
-}
+              "example": {"name":"LUSID:FrontOfficeAdministrator","description":"Front office administration role"}
             },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateRoleRequest"
               },
-              "example": {
-  "name": "LUSID:FrontOfficeAdministrator",
-  "description": "Front office administration role"
-}
+              "example": {"name":"LUSID:FrontOfficeAdministrator","description":"Front office administration role"}
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateRoleRequest"
               },
-              "example": {
-  "name": "LUSID:FrontOfficeAdministrator",
-  "description": "Front office administration role"
-}
+              "example": {"name":"LUSID:FrontOfficeAdministrator","description":"Front office administration role"}
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateRoleRequest"
               },
-              "example": {
-  "name": "LUSID:FrontOfficeAdministrator",
-  "description": "Front office administration role"
-}
+              "example": {"name":"LUSID:FrontOfficeAdministrator","description":"Front office administration role"}
             }
           },
           "required": true
@@ -1483,16 +1183,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/RoleResponse"
                 },
-                "example": {
-  "id": "asnvr5ne35",
-  "roleId": {
-    "scope": "LUSID",
-    "code": "FrontOfficeAdministrator"
-  },
-  "source": "LusidUser",
-  "name": "LUSID:FrontOfficeAdministrator",
-  "description": "Front office administration role"
-}
+                "example": {"id":"asnvr5ne35","roleId":{"scope":"LUSID","code":"FrontOfficeAdministrator"},"source":"LusidUser","name":"LUSID:FrontOfficeAdministrator","description":"Front office administration role"}
               }
             }
           },
@@ -1546,8 +1237,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the role"
+              "type": "string"
             }
           }
         ],
@@ -1559,16 +1249,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/RoleResponse"
                 },
-                "example": {
-  "id": "asnvr5ne35",
-  "roleId": {
-    "scope": "LUSID",
-    "code": "FrontOfficeAdministrator"
-  },
-  "source": "LusidUser",
-  "name": "LUSID:FrontOfficeAdministrator",
-  "description": "Front office administration role"
-}
+                "example": {"id":"asnvr5ne35","roleId":{"scope":"LUSID","code":"FrontOfficeAdministrator"},"source":"LusidUser","name":"LUSID:FrontOfficeAdministrator","description":"Front office administration role"}
               }
             }
           },
@@ -1620,14 +1301,13 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the role"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "400": {
             "description": "The details of the input related failure",
@@ -1674,8 +1354,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the role to be updated"
+              "type": "string"
             }
           }
         ],
@@ -1686,33 +1365,25 @@
               "schema": {
                 "$ref": "#/components/schemas/UpdateRoleRequest"
               },
-              "example": {
-  "description": "Front office administration role"
-}
+              "example": {"description":"Front office administration role"}
             },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateRoleRequest"
               },
-              "example": {
-  "description": "Front office administration role"
-}
+              "example": {"description":"Front office administration role"}
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateRoleRequest"
               },
-              "example": {
-  "description": "Front office administration role"
-}
+              "example": {"description":"Front office administration role"}
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateRoleRequest"
               },
-              "example": {
-  "description": "Front office administration role"
-}
+              "example": {"description":"Front office administration role"}
             }
           }
         },
@@ -1724,16 +1395,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/RoleResponse"
                 },
-                "example": {
-  "id": "asnvr5ne35",
-  "roleId": {
-    "scope": "LUSID",
-    "code": "FrontOfficeAdministrator"
-  },
-  "source": "LusidUser",
-  "name": "LUSID:FrontOfficeAdministrator",
-  "description": "Front office administration role"
-}
+                "example": {"id":"asnvr5ne35","roleId":{"scope":"LUSID","code":"FrontOfficeAdministrator"},"source":"LusidUser","name":"LUSID:FrontOfficeAdministrator","description":"Front office administration role"}
               }
             }
           },
@@ -1787,8 +1449,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the Role"
+              "type": "string"
             }
           }
         ],
@@ -1803,30 +1464,7 @@
                     "$ref": "#/components/schemas/UserResponse"
                   }
                 },
-                "example": [
-  {
-    "id": "asybvrs5",
-    "emailAddress": "joe.bloggs@myco.com",
-    "login": "joe.bloggs@myco.com",
-    "firstName": "Joe",
-    "lastName": "Bloggs",
-    "roles": [
-      {
-        "id": "customrole1",
-        "roleId": {
-          "scope": "default",
-          "code": "customrole2"
-        },
-        "source": "LusidUser",
-        "name": "Front Office Administrator",
-        "description": "Administration role for Front Office staff"
-      }
-    ],
-    "type": "Personal",
-    "status": "ACTIVE",
-    "external": false
-  }
-]
+                "example": [{"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","firstName":"Joe","lastName":"Bloggs","roles":[{"id":"customrole1","roleId":{"scope":"default","code":"customrole2"},"source":"LusidUser","name":"Front Office Administrator","description":"Administration role for Front Office staff"}],"type":"Personal","status":"ACTIVE","external":false}]
               }
             }
           },
@@ -1877,8 +1515,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the Role"
+              "type": "string"
             }
           },
           {
@@ -1890,14 +1527,13 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the User"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "404": {
             "description": "Not Found"
@@ -1947,8 +1583,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the Role"
+              "type": "string"
             }
           },
           {
@@ -1960,14 +1595,13 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the User"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "404": {
             "description": "Not Found"
@@ -2011,7 +1645,7 @@
         "operationId": "InvalidateToken",
         "responses": {
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "default": {
             "description": "Error response",
@@ -2047,7 +1681,6 @@
             "description": "Flag indicating that the users roles should be included in the response",
             "schema": {
               "type": "boolean",
-              "description": "Flag indicating that the users roles should be included in the response",
               "default": false
             },
             "x-nullable": true
@@ -2058,7 +1691,6 @@
             "description": "Include previously deleted (not purged) users",
             "schema": {
               "type": "boolean",
-              "description": "Include previously deleted (not purged) users",
               "default": false
             },
             "x-nullable": true
@@ -2075,30 +1707,7 @@
                     "$ref": "#/components/schemas/UserResponse"
                   }
                 },
-                "example": [
-  {
-    "id": "asybvrs5",
-    "emailAddress": "joe.bloggs@myco.com",
-    "login": "joe.bloggs@myco.com",
-    "firstName": "Joe",
-    "lastName": "Bloggs",
-    "roles": [
-      {
-        "id": "customrole1",
-        "roleId": {
-          "scope": "default",
-          "code": "customrole2"
-        },
-        "source": "LusidUser",
-        "name": "Front Office Administrator",
-        "description": "Administration role for Front Office staff"
-      }
-    ],
-    "type": "Personal",
-    "status": "ACTIVE",
-    "external": false
-  }
-]
+                "example": [{"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","firstName":"Joe","lastName":"Bloggs","roles":[{"id":"customrole1","roleId":{"scope":"default","code":"customrole2"},"source":"LusidUser","name":"Front Office Administrator","description":"Administration role for Front Office staff"}],"type":"Personal","status":"ACTIVE","external":false}]
               }
             }
           },
@@ -2144,7 +1753,6 @@
             "description": "Should the request wait until the newly created User is indexed (available in List) before returning",
             "schema": {
               "type": "boolean",
-              "description": "Should the request wait until the newly created User is indexed (available in List) before returning",
               "default": false
             },
             "x-nullable": true
@@ -2157,49 +1765,25 @@
               "schema": {
                 "$ref": "#/components/schemas/CreateUserRequest"
               },
-              "example": {
-  "firstName": "Joe",
-  "lastName": "Bloggs",
-  "emailAddress": "joe.bloggs@myco.com",
-  "login": "joe.bloggs@myco.com",
-  "type": "Personal"
-}
+              "example": {"firstName":"Joe","lastName":"Bloggs","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","type":"Personal"}
             },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateUserRequest"
               },
-              "example": {
-  "firstName": "Joe",
-  "lastName": "Bloggs",
-  "emailAddress": "joe.bloggs@myco.com",
-  "login": "joe.bloggs@myco.com",
-  "type": "Personal"
-}
+              "example": {"firstName":"Joe","lastName":"Bloggs","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","type":"Personal"}
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateUserRequest"
               },
-              "example": {
-  "firstName": "Joe",
-  "lastName": "Bloggs",
-  "emailAddress": "joe.bloggs@myco.com",
-  "login": "joe.bloggs@myco.com",
-  "type": "Personal"
-}
+              "example": {"firstName":"Joe","lastName":"Bloggs","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","type":"Personal"}
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateUserRequest"
               },
-              "example": {
-  "firstName": "Joe",
-  "lastName": "Bloggs",
-  "emailAddress": "joe.bloggs@myco.com",
-  "login": "joe.bloggs@myco.com",
-  "type": "Personal"
-}
+              "example": {"firstName":"Joe","lastName":"Bloggs","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","type":"Personal"}
             }
           },
           "required": true
@@ -2212,28 +1796,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/UserResponse"
                 },
-                "example": {
-  "id": "asybvrs5",
-  "emailAddress": "joe.bloggs@myco.com",
-  "login": "joe.bloggs@myco.com",
-  "firstName": "Joe",
-  "lastName": "Bloggs",
-  "roles": [
-    {
-      "id": "customrole1",
-      "roleId": {
-        "scope": "default",
-        "code": "customrole2"
-      },
-      "source": "LusidUser",
-      "name": "Front Office Administrator",
-      "description": "Administration role for Front Office staff"
-    }
-  ],
-  "type": "Personal",
-  "status": "ACTIVE",
-  "external": false
-}
+                "example": {"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","firstName":"Joe","lastName":"Bloggs","roles":[{"id":"customrole1","roleId":{"scope":"default","code":"customrole2"},"source":"LusidUser","name":"Front Office Administrator","description":"Administration role for Front Office staff"}],"type":"Personal","status":"ACTIVE","external":false}
               }
             }
           },
@@ -2284,8 +1847,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the User"
+              "type": "string"
             }
           },
           {
@@ -2293,9 +1855,7 @@
             "in": "query",
             "description": "Flag indicating that the users roles should be included in the response",
             "schema": {
-              "type": "boolean",
-              "description": "Flag indicating that the users roles should be included in the response",
-              "nullable": true
+              "type": "boolean"
             },
             "x-nullable": true
           }
@@ -2308,28 +1868,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/UserResponse"
                 },
-                "example": {
-  "id": "asybvrs5",
-  "emailAddress": "joe.bloggs@myco.com",
-  "login": "joe.bloggs@myco.com",
-  "firstName": "Joe",
-  "lastName": "Bloggs",
-  "roles": [
-    {
-      "id": "customrole1",
-      "roleId": {
-        "scope": "default",
-        "code": "customrole2"
-      },
-      "source": "LusidUser",
-      "name": "Front Office Administrator",
-      "description": "Administration role for Front Office staff"
-    }
-  ],
-  "type": "Personal",
-  "status": "ACTIVE",
-  "external": false
-}
+                "example": {"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","firstName":"Joe","lastName":"Bloggs","roles":[{"id":"customrole1","roleId":{"scope":"default","code":"customrole2"},"source":"LusidUser","name":"Front Office Administrator","description":"Administration role for Front Office staff"}],"type":"Personal","status":"ACTIVE","external":false}
               }
             }
           },
@@ -2378,8 +1917,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the user"
+              "type": "string"
             }
           },
           {
@@ -2387,15 +1925,14 @@
             "in": "query",
             "description": "Whether to purge any trace of the user from the identity provider (will affect audit)",
             "schema": {
-              "type": "boolean",
-              "description": "Whether to purge any trace of the user from the identity provider (will affect audit)"
+              "type": "boolean"
             },
             "x-nullable": true
           }
         ],
         "responses": {
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "400": {
             "description": "The details of the input related failure",
@@ -2442,8 +1979,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the User to be updated"
+              "type": "string"
             }
           }
         ],
@@ -2454,45 +1990,25 @@
               "schema": {
                 "$ref": "#/components/schemas/UpdateUserRequest"
               },
-              "example": {
-  "firstName": "Joe",
-  "lastName": "Bloggs",
-  "emailAddress": "joe.bloggs@myco.com",
-  "login": "joe.bloggs@myco.com"
-}
+              "example": {"firstName":"Joe","lastName":"Bloggs","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com"}
             },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateUserRequest"
               },
-              "example": {
-  "firstName": "Joe",
-  "lastName": "Bloggs",
-  "emailAddress": "joe.bloggs@myco.com",
-  "login": "joe.bloggs@myco.com"
-}
+              "example": {"firstName":"Joe","lastName":"Bloggs","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com"}
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateUserRequest"
               },
-              "example": {
-  "firstName": "Joe",
-  "lastName": "Bloggs",
-  "emailAddress": "joe.bloggs@myco.com",
-  "login": "joe.bloggs@myco.com"
-}
+              "example": {"firstName":"Joe","lastName":"Bloggs","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com"}
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateUserRequest"
               },
-              "example": {
-  "firstName": "Joe",
-  "lastName": "Bloggs",
-  "emailAddress": "joe.bloggs@myco.com",
-  "login": "joe.bloggs@myco.com"
-}
+              "example": {"firstName":"Joe","lastName":"Bloggs","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com"}
             }
           },
           "required": true
@@ -2505,28 +2021,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/UserResponse"
                 },
-                "example": {
-  "id": "asybvrs5",
-  "emailAddress": "joe.bloggs@myco.com",
-  "login": "joe.bloggs@myco.com",
-  "firstName": "Joe",
-  "lastName": "Bloggs",
-  "roles": [
-    {
-      "id": "customrole1",
-      "roleId": {
-        "scope": "default",
-        "code": "customrole2"
-      },
-      "source": "LusidUser",
-      "name": "Front Office Administrator",
-      "description": "Administration role for Front Office staff"
-    }
-  ],
-  "type": "Personal",
-  "status": "ACTIVE",
-  "external": false
-}
+                "example": {"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","firstName":"Joe","lastName":"Bloggs","roles":[{"id":"customrole1","roleId":{"scope":"default","code":"customrole2"},"source":"LusidUser","name":"Front Office Administrator","description":"Administration role for Front Office staff"}],"type":"Personal","status":"ACTIVE","external":false}
               }
             }
           },
@@ -2577,14 +2072,13 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the User to be activated"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "400": {
             "description": "The details of the input related failure",
@@ -2633,8 +2127,7 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the User having its password reset"
+              "type": "string"
             }
           }
         ],
@@ -2696,14 +2189,13 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the User having their MFA factors reset"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "400": {
             "description": "The details of the input related failure",
@@ -2752,14 +2244,13 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the User having their password reset"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "400": {
             "description": "The details of the input related failure",
@@ -2808,14 +2299,13 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string",
-              "description": "The unique identifier for the User to be unlocked"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "400": {
             "description": "The details of the input related failure",
@@ -2857,6 +2347,7 @@
         "type": "object",
         "properties": {
           "description": {
+            "minLength": 1,
             "type": "string"
           },
           "action": {
@@ -2895,6 +2386,7 @@
             "nullable": true
           },
           "description": {
+            "minLength": 1,
             "type": "string"
           },
           "actions": {
@@ -3005,6 +2497,7 @@
         "type": "object",
         "properties": {
           "issuerUrl": {
+            "minLength": 1,
             "type": "string"
           },
           "fallbackIssuerUrls": {
@@ -3120,6 +2613,7 @@
         "type": "object",
         "properties": {
           "key": {
+            "minLength": 1,
             "type": "string",
             "description": "The API Key value"
           },
@@ -3248,14 +2742,17 @@
         "type": "object",
         "properties": {
           "id": {
+            "minLength": 1,
             "type": "string",
             "description": "The user's system supplied unique identifier"
           },
           "emailAddress": {
+            "minLength": 1,
             "type": "string",
             "description": "The user's email address which may be null depending on the authentication method"
           },
           "type": {
+            "minLength": 1,
             "type": "string",
             "description": "The type of user (e.g. Personal or Service)"
           },
@@ -3306,12 +2803,15 @@
             "format": "int32"
           },
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "displayName": {
+            "minLength": 1,
             "type": "string"
           },
           "description": {
+            "minLength": 1,
             "type": "string"
           },
           "required": {
@@ -3342,7 +2842,7 @@
             }
           },
           "actions": {
-            "minLength": 1,
+            "minItems": 1,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ActionId"
@@ -3432,6 +2932,7 @@
         "type": "object",
         "properties": {
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "errorDetails": {
@@ -3468,18 +2969,9 @@
           "instance": {
             "type": "string",
             "nullable": true
-          },
-          "extensions": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object",
-              "additionalProperties": false
-            },
-            "nullable": true,
-            "readOnly": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": { }
       },
       "LusidValidationProblemDetails": {
         "required": [
@@ -3489,6 +2981,7 @@
         "type": "object",
         "properties": {
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "errorDetails": {
@@ -3535,18 +3028,9 @@
           "instance": {
             "type": "string",
             "nullable": true
-          },
-          "extensions": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object",
-              "additionalProperties": false
-            },
-            "nullable": true,
-            "readOnly": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": { }
       },
       "OAuthApplication": {
         "required": [
@@ -3559,9 +3043,11 @@
         "type": "object",
         "properties": {
           "id": {
+            "minLength": 1,
             "type": "string"
           },
           "type": {
+            "minLength": 1,
             "type": "string"
           },
           "displayName": {
@@ -3575,9 +3061,11 @@
             "nullable": true
           },
           "clientId": {
+            "minLength": 1,
             "type": "string"
           },
           "issuer": {
+            "minLength": 1,
             "type": "string"
           }
         },
@@ -3648,6 +3136,7 @@
         "type": "object",
         "properties": {
           "id": {
+            "minLength": 1,
             "type": "string",
             "description": "The role's system supplied unique identifier"
           },
@@ -3655,10 +3144,12 @@
             "$ref": "#/components/schemas/RoleId"
           },
           "source": {
+            "minLength": 1,
             "type": "string",
             "description": "The source of the role"
           },
           "name": {
+            "minLength": 1,
             "type": "string",
             "description": "The role name, which must be unique within the system."
           },
@@ -3736,6 +3227,7 @@
             "format": "date-time"
           },
           "permittedRole": {
+            "minLength": 1,
             "type": "string",
             "description": "Unique identifier for permitted role. \r\nUse GET /identity/api/authentication/support-roles to lookup role label/code from identifier."
           }
@@ -3786,6 +3278,7 @@
         "type": "object",
         "properties": {
           "id": {
+            "minLength": 1,
             "type": "string",
             "description": "ID of the support access request"
           },
@@ -3814,6 +3307,7 @@
             "format": "date-time"
           },
           "createdBy": {
+            "minLength": 1,
             "type": "string",
             "description": "Obfuscated UserId of the user who granted the support access"
           },
@@ -3889,6 +3383,7 @@
         "type": "object",
         "properties": {
           "password": {
+            "minLength": 1,
             "type": "string",
             "description": "The user's temporary password"
           }
@@ -3972,10 +3467,12 @@
         "type": "object",
         "properties": {
           "id": {
+            "minLength": 1,
             "type": "string",
             "description": "The user's system supplied unique identifier"
           },
           "emailAddress": {
+            "minLength": 1,
             "type": "string",
             "description": "The user's emailAddress address, which must be unique within the system"
           },
@@ -3985,13 +3482,16 @@
             "nullable": true
           },
           "login": {
+            "minLength": 1,
             "type": "string"
           },
           "firstName": {
+            "minLength": 1,
             "type": "string",
             "description": "The user's first name"
           },
           "lastName": {
+            "minLength": 1,
             "type": "string",
             "description": "The user's last name"
           },
@@ -4004,10 +3504,12 @@
             "nullable": true
           },
           "type": {
+            "minLength": 1,
             "type": "string",
             "description": "The type of user (e.g. Personal or Service)"
           },
           "status": {
+            "minLength": 1,
             "type": "string",
             "description": "The status of the user"
           },
