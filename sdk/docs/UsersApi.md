@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**ExpirePassword**](UsersApi.md#expirepassword) | **POST** /api/users/{id}/lifecycle/$expirepassword | [EARLY ACCESS] ExpirePassword: Reset the user&#39;s password to a temporary one
 [**FindUsersById**](UsersApi.md#findusersbyid) | **GET** /api/directory | [EARLY ACCESS] FindUsersById: Find users by id endpoint
 [**GetUser**](UsersApi.md#getuser) | **GET** /api/users/{id} | [EARLY ACCESS] GetUser: Get User
+[**ListRunnableUsers**](UsersApi.md#listrunnableusers) | **GET** /api/users/$runnable | [EARLY ACCESS] ListRunnableUsers: List Runable Users
 [**ListUsers**](UsersApi.md#listusers) | **GET** /api/users | [EARLY ACCESS] ListUsers: List Users
 [**ResetFactors**](UsersApi.md#resetfactors) | **POST** /api/users/{id}/lifecycle/$resetfactors | [EARLY ACCESS] ResetFactors: Reset MFA factors
 [**ResetPassword**](UsersApi.md#resetpassword) | **POST** /api/users/{id}/lifecycle/$resetpassword | [EARLY ACCESS] ResetPassword: Reset Password
@@ -398,6 +399,77 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Get the specified user |  -  |
 | **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listrunnableusers"></a>
+# **ListRunnableUsers**
+> ICollection&lt;UserResponse&gt; ListRunnableUsers ()
+
+[EARLY ACCESS] ListRunnableUsers: List Runable Users
+
+List the available runnable Users
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Finbourne.Identity.Sdk.Api;
+using Finbourne.Identity.Sdk.Client;
+using Finbourne.Identity.Sdk.Model;
+
+namespace Example
+{
+    public class ListRunnableUsersExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/identity";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UsersApi(config);
+
+            try
+            {
+                // [EARLY ACCESS] ListRunnableUsers: List Runable Users
+                ICollection<UserResponse> result = apiInstance.ListRunnableUsers();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.ListRunnableUsers: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ICollection&lt;UserResponse&gt;**](UserResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List the available runnable users |  -  |
 | **0** | Error response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
