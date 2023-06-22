@@ -84,7 +84,7 @@ This endpoint does not need any parameter.
 
 <a name="getsupportaccesshistory"></a>
 # **GetSupportAccessHistory**
-> ICollection&lt;SupportAccessResponse&gt; GetSupportAccessHistory ()
+> ICollection&lt;SupportAccessResponse&gt; GetSupportAccessHistory (DateTimeOffset? start = null, DateTimeOffset? end = null)
 
 [EARLY ACCESS] GetSupportAccessHistory: Get the history of all support access granted and any information pertaining to their termination
 
@@ -110,11 +110,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthenticationApi(config);
+            var start = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The start expiry date to query support access requests from (optional) 
+            var end = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The end expiry date to query support access requests to (optional) 
 
             try
             {
                 // [EARLY ACCESS] GetSupportAccessHistory: Get the history of all support access granted and any information pertaining to their termination
-                ICollection<SupportAccessResponse> result = apiInstance.GetSupportAccessHistory();
+                ICollection<SupportAccessResponse> result = apiInstance.GetSupportAccessHistory(start, end);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -129,7 +131,11 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **start** | **DateTimeOffset?**| The start expiry date to query support access requests from | [optional] 
+ **end** | **DateTimeOffset?**| The end expiry date to query support access requests to | [optional] 
 
 ### Return type
 
@@ -149,6 +155,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Get support access history |  -  |
+| **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
