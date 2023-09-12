@@ -4,15 +4,15 @@ All URIs are relative to *https://www.lusid.com/identity*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddScim**](IdentityProviderApi.md#addscim) | **PUT** /api/identityprovider/scim | [EXPERIMENTAL] AddScim: Add SCIM
-[**RemoveScim**](IdentityProviderApi.md#removescim) | **DELETE** /api/identityprovider/scim | [EXPERIMENTAL] RemoveScim: Remove SCIM
+[**AddScim**](IdentityProviderApi.md#addscim) | **PUT** /api/identityprovider/scim | [EARLY ACCESS] AddScim: Add SCIM
+[**RemoveScim**](IdentityProviderApi.md#removescim) | **DELETE** /api/identityprovider/scim | [EARLY ACCESS] RemoveScim: Remove SCIM
 
 
 <a name="addscim"></a>
 # **AddScim**
 > AddScimResponse AddScim (string apiTokenAction = null, DateTimeOffset? oldApiTokenDeactivation = null)
 
-[EXPERIMENTAL] AddScim: Add SCIM
+[EARLY ACCESS] AddScim: Add SCIM
 
 Generates an API token to be used for SCIM
 
@@ -41,7 +41,7 @@ namespace Example
 
             try
             {
-                // [EXPERIMENTAL] AddScim: Add SCIM
+                // [EARLY ACCESS] AddScim: Add SCIM
                 AddScimResponse result = apiInstance.AddScim(apiTokenAction, oldApiTokenDeactivation);
                 Debug.WriteLine(result);
             }
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 # **RemoveScim**
 > void RemoveScim ()
 
-[EXPERIMENTAL] RemoveScim: Remove SCIM
+[EARLY ACCESS] RemoveScim: Remove SCIM
 
 Deactivates any existing SCIM API token
 
@@ -117,7 +117,7 @@ namespace Example
 
             try
             {
-                // [EXPERIMENTAL] RemoveScim: Remove SCIM
+                // [EARLY ACCESS] RemoveScim: Remove SCIM
                 apiInstance.RemoveScim();
             }
             catch (ApiException  e)
