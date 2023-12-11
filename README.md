@@ -1,3 +1,9 @@
+# Deprecated
+
+Please note that this repository is deprecated and will be archived early 2024.
+
+All functionality is now contained, in the [identity-sdk-csharp](https://github.com/finbourne/identity-sdk-csharp) repository on the `main` branch.
+
 # LUSID<sup>®</sup> Identity SDK C# (Preview)
 ![LUSID by Finbourne](https://content.finbourne.com/LUSID_repo.png)
 
@@ -21,6 +27,4 @@ This C# SDK (Preview) supports `Production`, `Early Access`, `Beta` and `Experim
 
 ## Build Status 
 
-| branch | status |
-| --- | --- |
-| `master` |  ![Nuget](https://img.shields.io/nuget/v/Finbourne.Identity.Sdk.Preview?color=blue) [![Build](https://github.com/finbourne/identity-sdk-csharp-preview/actions/workflows/build.yaml/badge.svg?branch=master)](https://github.com/finbourne/identity-sdk-csharp-preview/actions/workflows/build.yaml) |
+![Nuget](https://img.shields.io/nuget/v/Finbourne.Identity.Sdk.Preview?color=blue) [![Build](https://github.com/finbourne/identity-sdk-csharp-preview/actions/workflows/build.yaml/badge.svg?branch=master)](https://github.com/finbourne/identity-sdk-csharp-preview/actions/workflows/build.yaml)
