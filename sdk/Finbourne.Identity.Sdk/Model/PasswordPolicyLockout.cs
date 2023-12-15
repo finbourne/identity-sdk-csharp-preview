@@ -27,33 +27,26 @@ using OpenAPIDateConverter = Finbourne.Identity.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Identity.Sdk.Model
 {
     /// <summary>
-    /// AddScimResponse
+    /// PasswordPolicyLockout
     /// </summary>
-    [DataContract(Name = "AddScimResponse")]
-    public partial class AddScimResponse : IEquatable<AddScimResponse>
+    [DataContract(Name = "PasswordPolicyLockout")]
+    public partial class PasswordPolicyLockout : IEquatable<PasswordPolicyLockout>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddScimResponse" /> class.
+        /// Initializes a new instance of the <see cref="PasswordPolicyLockout" /> class.
         /// </summary>
-        /// <param name="baseUrl">baseUrl.</param>
-        /// <param name="apiToken">apiToken.</param>
-        public AddScimResponse(string baseUrl = default(string), string apiToken = default(string))
+        /// <param name="maxAttempts">The maximum number of unsuccessful attempts before the user is locked out of their account.</param>
+        public PasswordPolicyLockout(int maxAttempts = default(int))
         {
-            this.BaseUrl = baseUrl;
-            this.ApiToken = apiToken;
+            this.MaxAttempts = maxAttempts;
         }
 
         /// <summary>
-        /// Gets or Sets BaseUrl
+        /// The maximum number of unsuccessful attempts before the user is locked out of their account
         /// </summary>
-        [DataMember(Name = "baseUrl", EmitDefaultValue = true)]
-        public string BaseUrl { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ApiToken
-        /// </summary>
-        [DataMember(Name = "apiToken", EmitDefaultValue = true)]
-        public string ApiToken { get; set; }
+        /// <value>The maximum number of unsuccessful attempts before the user is locked out of their account</value>
+        [DataMember(Name = "maxAttempts", EmitDefaultValue = true)]
+        public int MaxAttempts { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +55,8 @@ namespace Finbourne.Identity.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AddScimResponse {\n");
-            sb.Append("  BaseUrl: ").Append(BaseUrl).Append("\n");
-            sb.Append("  ApiToken: ").Append(ApiToken).Append("\n");
+            sb.Append("class PasswordPolicyLockout {\n");
+            sb.Append("  MaxAttempts: ").Append(MaxAttempts).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,29 +77,23 @@ namespace Finbourne.Identity.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AddScimResponse);
+            return this.Equals(input as PasswordPolicyLockout);
         }
 
         /// <summary>
-        /// Returns true if AddScimResponse instances are equal
+        /// Returns true if PasswordPolicyLockout instances are equal
         /// </summary>
-        /// <param name="input">Instance of AddScimResponse to be compared</param>
+        /// <param name="input">Instance of PasswordPolicyLockout to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AddScimResponse input)
+        public bool Equals(PasswordPolicyLockout input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.BaseUrl == input.BaseUrl ||
-                    (this.BaseUrl != null &&
-                    this.BaseUrl.Equals(input.BaseUrl))
-                ) && 
-                (
-                    this.ApiToken == input.ApiToken ||
-                    (this.ApiToken != null &&
-                    this.ApiToken.Equals(input.ApiToken))
+                    this.MaxAttempts == input.MaxAttempts ||
+                    this.MaxAttempts.Equals(input.MaxAttempts)
                 );
         }
 
@@ -120,10 +106,7 @@ namespace Finbourne.Identity.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.BaseUrl != null)
-                    hashCode = hashCode * 59 + this.BaseUrl.GetHashCode();
-                if (this.ApiToken != null)
-                    hashCode = hashCode * 59 + this.ApiToken.GetHashCode();
+                hashCode = hashCode * 59 + this.MaxAttempts.GetHashCode();
                 return hashCode;
             }
         }

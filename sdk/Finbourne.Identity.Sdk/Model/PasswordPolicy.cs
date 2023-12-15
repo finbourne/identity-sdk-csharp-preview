@@ -27,33 +27,25 @@ using OpenAPIDateConverter = Finbourne.Identity.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Identity.Sdk.Model
 {
     /// <summary>
-    /// AddScimResponse
+    /// PasswordPolicy
     /// </summary>
-    [DataContract(Name = "AddScimResponse")]
-    public partial class AddScimResponse : IEquatable<AddScimResponse>
+    [DataContract(Name = "PasswordPolicy")]
+    public partial class PasswordPolicy : IEquatable<PasswordPolicy>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddScimResponse" /> class.
+        /// Initializes a new instance of the <see cref="PasswordPolicy" /> class.
         /// </summary>
-        /// <param name="baseUrl">baseUrl.</param>
-        /// <param name="apiToken">apiToken.</param>
-        public AddScimResponse(string baseUrl = default(string), string apiToken = default(string))
+        /// <param name="conditions">conditions.</param>
+        public PasswordPolicy(PasswordPolicyConditions conditions = default(PasswordPolicyConditions))
         {
-            this.BaseUrl = baseUrl;
-            this.ApiToken = apiToken;
+            this.Conditions = conditions;
         }
 
         /// <summary>
-        /// Gets or Sets BaseUrl
+        /// Gets or Sets Conditions
         /// </summary>
-        [DataMember(Name = "baseUrl", EmitDefaultValue = true)]
-        public string BaseUrl { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ApiToken
-        /// </summary>
-        [DataMember(Name = "apiToken", EmitDefaultValue = true)]
-        public string ApiToken { get; set; }
+        [DataMember(Name = "conditions", EmitDefaultValue = false)]
+        public PasswordPolicyConditions Conditions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +54,8 @@ namespace Finbourne.Identity.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AddScimResponse {\n");
-            sb.Append("  BaseUrl: ").Append(BaseUrl).Append("\n");
-            sb.Append("  ApiToken: ").Append(ApiToken).Append("\n");
+            sb.Append("class PasswordPolicy {\n");
+            sb.Append("  Conditions: ").Append(Conditions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,29 +76,24 @@ namespace Finbourne.Identity.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AddScimResponse);
+            return this.Equals(input as PasswordPolicy);
         }
 
         /// <summary>
-        /// Returns true if AddScimResponse instances are equal
+        /// Returns true if PasswordPolicy instances are equal
         /// </summary>
-        /// <param name="input">Instance of AddScimResponse to be compared</param>
+        /// <param name="input">Instance of PasswordPolicy to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AddScimResponse input)
+        public bool Equals(PasswordPolicy input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.BaseUrl == input.BaseUrl ||
-                    (this.BaseUrl != null &&
-                    this.BaseUrl.Equals(input.BaseUrl))
-                ) && 
-                (
-                    this.ApiToken == input.ApiToken ||
-                    (this.ApiToken != null &&
-                    this.ApiToken.Equals(input.ApiToken))
+                    this.Conditions == input.Conditions ||
+                    (this.Conditions != null &&
+                    this.Conditions.Equals(input.Conditions))
                 );
         }
 
@@ -120,10 +106,8 @@ namespace Finbourne.Identity.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.BaseUrl != null)
-                    hashCode = hashCode * 59 + this.BaseUrl.GetHashCode();
-                if (this.ApiToken != null)
-                    hashCode = hashCode * 59 + this.ApiToken.GetHashCode();
+                if (this.Conditions != null)
+                    hashCode = hashCode * 59 + this.Conditions.GetHashCode();
                 return hashCode;
             }
         }
