@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.0.2725",
+    "version": "0.0.2729",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -1211,7 +1211,7 @@
                     "$ref": "#/components/schemas/RoleResponse"
                   }
                 },
-                "example": [{"id":"asnvr5ne35","roleId":{"scope":"LUSID","code":"FrontOfficeAdministrator"},"source":"LusidUser","name":"LUSID:FrontOfficeAdministrator","description":"Front office administration role"}]
+                "example": [{"id":"asnvr5ne35","roleId":{"scope":"LUSID","code":"FrontOfficeAdministrator"},"source":"LusidUser","name":"LUSID:FrontOfficeAdministrator","description":"Front office administration role","samlName":"LUSID:FrontOfficeAdministrator"}]
               }
             }
           },
@@ -1278,7 +1278,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/RoleResponse"
                 },
-                "example": {"id":"asnvr5ne35","roleId":{"scope":"LUSID","code":"FrontOfficeAdministrator"},"source":"LusidUser","name":"LUSID:FrontOfficeAdministrator","description":"Front office administration role"}
+                "example": {"id":"asnvr5ne35","roleId":{"scope":"LUSID","code":"FrontOfficeAdministrator"},"source":"LusidUser","name":"LUSID:FrontOfficeAdministrator","description":"Front office administration role","samlName":"LUSID:FrontOfficeAdministrator"}
               }
             }
           },
@@ -1344,7 +1344,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/RoleResponse"
                 },
-                "example": {"id":"asnvr5ne35","roleId":{"scope":"LUSID","code":"FrontOfficeAdministrator"},"source":"LusidUser","name":"LUSID:FrontOfficeAdministrator","description":"Front office administration role"}
+                "example": {"id":"asnvr5ne35","roleId":{"scope":"LUSID","code":"FrontOfficeAdministrator"},"source":"LusidUser","name":"LUSID:FrontOfficeAdministrator","description":"Front office administration role","samlName":"LUSID:FrontOfficeAdministrator"}
               }
             }
           },
@@ -1490,7 +1490,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/RoleResponse"
                 },
-                "example": {"id":"asnvr5ne35","roleId":{"scope":"LUSID","code":"FrontOfficeAdministrator"},"source":"LusidUser","name":"LUSID:FrontOfficeAdministrator","description":"Front office administration role"}
+                "example": {"id":"asnvr5ne35","roleId":{"scope":"LUSID","code":"FrontOfficeAdministrator"},"source":"LusidUser","name":"LUSID:FrontOfficeAdministrator","description":"Front office administration role","samlName":"LUSID:FrontOfficeAdministrator"}
               }
             }
           },
@@ -1559,7 +1559,7 @@
                     "$ref": "#/components/schemas/UserResponse"
                   }
                 },
-                "example": [{"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","firstName":"Joe","lastName":"Bloggs","roles":[{"id":"customrole1","roleId":{"scope":"default","code":"customrole2"},"source":"LusidUser","name":"Front Office Administrator","description":"Administration role for Front Office staff"}],"type":"Personal","status":"ACTIVE","external":false}]
+                "example": [{"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","firstName":"Joe","lastName":"Bloggs","roles":[{"id":"customrole1","roleId":{"scope":"default","code":"customrole2"},"source":"LusidUser","name":"Front Office Administrator","description":"Administration role for Front Office staff","samlName":"customrole2"}],"type":"Personal","status":"ACTIVE","external":false}]
               }
             }
           },
@@ -1802,7 +1802,7 @@
                     "$ref": "#/components/schemas/UserResponse"
                   }
                 },
-                "example": [{"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","firstName":"Joe","lastName":"Bloggs","roles":[{"id":"customrole1","roleId":{"scope":"default","code":"customrole2"},"source":"LusidUser","name":"Front Office Administrator","description":"Administration role for Front Office staff"}],"type":"Personal","status":"ACTIVE","external":false}]
+                "example": [{"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","firstName":"Joe","lastName":"Bloggs","roles":[{"id":"customrole1","roleId":{"scope":"default","code":"customrole2"},"source":"LusidUser","name":"Front Office Administrator","description":"Administration role for Front Office staff","samlName":"customrole2"}],"type":"Personal","status":"ACTIVE","external":false}]
               }
             }
           },
@@ -1891,7 +1891,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/UserResponse"
                 },
-                "example": {"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","firstName":"Joe","lastName":"Bloggs","roles":[{"id":"customrole1","roleId":{"scope":"default","code":"customrole2"},"source":"LusidUser","name":"Front Office Administrator","description":"Administration role for Front Office staff"}],"type":"Personal","status":"ACTIVE","external":false}
+                "example": {"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","firstName":"Joe","lastName":"Bloggs","roles":[{"id":"customrole1","roleId":{"scope":"default","code":"customrole2"},"source":"LusidUser","name":"Front Office Administrator","description":"Administration role for Front Office staff","samlName":"customrole2"}],"type":"Personal","status":"ACTIVE","external":false}
               }
             }
           },
@@ -1943,7 +1943,7 @@
                     "$ref": "#/components/schemas/UserResponse"
                   }
                 },
-                "example": [{"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","firstName":"Joe","lastName":"Bloggs","roles":[{"id":"customrole1","roleId":{"scope":"default","code":"customrole2"},"source":"LusidUser","name":"Front Office Administrator","description":"Administration role for Front Office staff"}],"type":"Personal","status":"ACTIVE","external":false}]
+                "example": [{"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","firstName":"Joe","lastName":"Bloggs","roles":[{"id":"customrole1","roleId":{"scope":"default","code":"customrole2"},"source":"LusidUser","name":"Front Office Administrator","description":"Administration role for Front Office staff","samlName":"customrole2"}],"type":"Personal","status":"ACTIVE","external":false}]
               }
             }
           },
@@ -2005,7 +2005,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/UserResponse"
                 },
-                "example": {"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","firstName":"Joe","lastName":"Bloggs","roles":[{"id":"customrole1","roleId":{"scope":"default","code":"customrole2"},"source":"LusidUser","name":"Front Office Administrator","description":"Administration role for Front Office staff"}],"type":"Personal","status":"ACTIVE","external":false}
+                "example": {"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","firstName":"Joe","lastName":"Bloggs","roles":[{"id":"customrole1","roleId":{"scope":"default","code":"customrole2"},"source":"LusidUser","name":"Front Office Administrator","description":"Administration role for Front Office staff","samlName":"customrole2"}],"type":"Personal","status":"ACTIVE","external":false}
               }
             }
           },
@@ -2158,7 +2158,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/UserResponse"
                 },
-                "example": {"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","firstName":"Joe","lastName":"Bloggs","roles":[{"id":"customrole1","roleId":{"scope":"default","code":"customrole2"},"source":"LusidUser","name":"Front Office Administrator","description":"Administration role for Front Office staff"}],"type":"Personal","status":"ACTIVE","external":false}
+                "example": {"id":"asybvrs5","emailAddress":"joe.bloggs@myco.com","login":"joe.bloggs@myco.com","firstName":"Joe","lastName":"Bloggs","roles":[{"id":"customrole1","roleId":{"scope":"default","code":"customrole2"},"source":"LusidUser","name":"Front Office Administrator","description":"Administration role for Front Office staff","samlName":"customrole2"}],"type":"Personal","status":"ACTIVE","external":false}
               }
             }
           },
@@ -3425,6 +3425,11 @@
           "description": {
             "type": "string",
             "description": "The description for this role",
+            "nullable": true
+          },
+          "samlName": {
+            "type": "string",
+            "description": "The name to use on the SAML request if assigning this role via SAML Just in Time (JIT)",
             "nullable": true
           }
         },
