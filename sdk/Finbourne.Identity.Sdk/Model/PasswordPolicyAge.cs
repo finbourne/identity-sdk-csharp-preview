@@ -27,33 +27,35 @@ using OpenAPIDateConverter = Finbourne.Identity.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Identity.Sdk.Model
 {
     /// <summary>
-    /// AddScimResponse
+    /// PasswordPolicyAge
     /// </summary>
-    [DataContract(Name = "AddScimResponse")]
-    public partial class AddScimResponse : IEquatable<AddScimResponse>
+    [DataContract(Name = "PasswordPolicyAge")]
+    public partial class PasswordPolicyAge : IEquatable<PasswordPolicyAge>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddScimResponse" /> class.
+        /// Initializes a new instance of the <see cref="PasswordPolicyAge" /> class.
         /// </summary>
-        /// <param name="baseUrl">baseUrl.</param>
-        /// <param name="apiToken">apiToken.</param>
-        public AddScimResponse(string baseUrl = default(string), string apiToken = default(string))
+        /// <param name="maxAgeDays">The maximum age (in days) a password can be before expiring and needing to be changed.</param>
+        /// <param name="historyCount">The number of unique passwords that need to be used before a previous password is permitted again.</param>
+        public PasswordPolicyAge(int maxAgeDays = default(int), int historyCount = default(int))
         {
-            this.BaseUrl = baseUrl;
-            this.ApiToken = apiToken;
+            this.MaxAgeDays = maxAgeDays;
+            this.HistoryCount = historyCount;
         }
 
         /// <summary>
-        /// Gets or Sets BaseUrl
+        /// The maximum age (in days) a password can be before expiring and needing to be changed
         /// </summary>
-        [DataMember(Name = "baseUrl", EmitDefaultValue = true)]
-        public string BaseUrl { get; set; }
+        /// <value>The maximum age (in days) a password can be before expiring and needing to be changed</value>
+        [DataMember(Name = "maxAgeDays", EmitDefaultValue = true)]
+        public int MaxAgeDays { get; set; }
 
         /// <summary>
-        /// Gets or Sets ApiToken
+        /// The number of unique passwords that need to be used before a previous password is permitted again
         /// </summary>
-        [DataMember(Name = "apiToken", EmitDefaultValue = true)]
-        public string ApiToken { get; set; }
+        /// <value>The number of unique passwords that need to be used before a previous password is permitted again</value>
+        [DataMember(Name = "historyCount", EmitDefaultValue = true)]
+        public int HistoryCount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +64,9 @@ namespace Finbourne.Identity.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AddScimResponse {\n");
-            sb.Append("  BaseUrl: ").Append(BaseUrl).Append("\n");
-            sb.Append("  ApiToken: ").Append(ApiToken).Append("\n");
+            sb.Append("class PasswordPolicyAge {\n");
+            sb.Append("  MaxAgeDays: ").Append(MaxAgeDays).Append("\n");
+            sb.Append("  HistoryCount: ").Append(HistoryCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,29 +87,27 @@ namespace Finbourne.Identity.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AddScimResponse);
+            return this.Equals(input as PasswordPolicyAge);
         }
 
         /// <summary>
-        /// Returns true if AddScimResponse instances are equal
+        /// Returns true if PasswordPolicyAge instances are equal
         /// </summary>
-        /// <param name="input">Instance of AddScimResponse to be compared</param>
+        /// <param name="input">Instance of PasswordPolicyAge to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AddScimResponse input)
+        public bool Equals(PasswordPolicyAge input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.BaseUrl == input.BaseUrl ||
-                    (this.BaseUrl != null &&
-                    this.BaseUrl.Equals(input.BaseUrl))
+                    this.MaxAgeDays == input.MaxAgeDays ||
+                    this.MaxAgeDays.Equals(input.MaxAgeDays)
                 ) && 
                 (
-                    this.ApiToken == input.ApiToken ||
-                    (this.ApiToken != null &&
-                    this.ApiToken.Equals(input.ApiToken))
+                    this.HistoryCount == input.HistoryCount ||
+                    this.HistoryCount.Equals(input.HistoryCount)
                 );
         }
 
@@ -120,10 +120,8 @@ namespace Finbourne.Identity.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.BaseUrl != null)
-                    hashCode = hashCode * 59 + this.BaseUrl.GetHashCode();
-                if (this.ApiToken != null)
-                    hashCode = hashCode * 59 + this.ApiToken.GetHashCode();
+                hashCode = hashCode * 59 + this.MaxAgeDays.GetHashCode();
+                hashCode = hashCode * 59 + this.HistoryCount.GetHashCode();
                 return hashCode;
             }
         }

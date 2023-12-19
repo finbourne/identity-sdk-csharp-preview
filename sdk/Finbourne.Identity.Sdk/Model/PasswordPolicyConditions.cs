@@ -27,44 +27,41 @@ using OpenAPIDateConverter = Finbourne.Identity.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Identity.Sdk.Model
 {
     /// <summary>
-    /// Provides details about an entity error that occured
+    /// Password policy conditions for a password policy
     /// </summary>
-    [DataContract(Name = "ErrorDetail")]
-    public partial class ErrorDetail : IEquatable<ErrorDetail>
+    [DataContract(Name = "PasswordPolicyConditions")]
+    public partial class PasswordPolicyConditions : IEquatable<PasswordPolicyConditions>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ErrorDetail" /> class.
+        /// Initializes a new instance of the <see cref="PasswordPolicyConditions" /> class.
         /// </summary>
-        /// <param name="id">Id of the entity this error relates to.</param>
-        /// <param name="type">Error type.</param>
-        /// <param name="detail">Human readable description of the error.</param>
-        public ErrorDetail(string id = default(string), string type = default(string), string detail = default(string))
+        /// <param name="complexity">complexity.</param>
+        /// <param name="age">age.</param>
+        /// <param name="lockout">lockout.</param>
+        public PasswordPolicyConditions(PasswordPolicyComplexity complexity = default(PasswordPolicyComplexity), PasswordPolicyAge age = default(PasswordPolicyAge), PasswordPolicyLockout lockout = default(PasswordPolicyLockout))
         {
-            this.Id = id;
-            this.Type = type;
-            this.Detail = detail;
+            this.Complexity = complexity;
+            this.Age = age;
+            this.Lockout = lockout;
         }
 
         /// <summary>
-        /// Id of the entity this error relates to
+        /// Gets or Sets Complexity
         /// </summary>
-        /// <value>Id of the entity this error relates to</value>
-        [DataMember(Name = "id", EmitDefaultValue = true)]
-        public string Id { get; set; }
+        [DataMember(Name = "complexity", EmitDefaultValue = false)]
+        public PasswordPolicyComplexity Complexity { get; set; }
 
         /// <summary>
-        /// Error type
+        /// Gets or Sets Age
         /// </summary>
-        /// <value>Error type</value>
-        [DataMember(Name = "type", EmitDefaultValue = true)]
-        public string Type { get; set; }
+        [DataMember(Name = "age", EmitDefaultValue = false)]
+        public PasswordPolicyAge Age { get; set; }
 
         /// <summary>
-        /// Human readable description of the error
+        /// Gets or Sets Lockout
         /// </summary>
-        /// <value>Human readable description of the error</value>
-        [DataMember(Name = "detail", EmitDefaultValue = true)]
-        public string Detail { get; set; }
+        [DataMember(Name = "lockout", EmitDefaultValue = false)]
+        public PasswordPolicyLockout Lockout { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,10 +70,10 @@ namespace Finbourne.Identity.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ErrorDetail {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Detail: ").Append(Detail).Append("\n");
+            sb.Append("class PasswordPolicyConditions {\n");
+            sb.Append("  Complexity: ").Append(Complexity).Append("\n");
+            sb.Append("  Age: ").Append(Age).Append("\n");
+            sb.Append("  Lockout: ").Append(Lockout).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,34 +94,34 @@ namespace Finbourne.Identity.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ErrorDetail);
+            return this.Equals(input as PasswordPolicyConditions);
         }
 
         /// <summary>
-        /// Returns true if ErrorDetail instances are equal
+        /// Returns true if PasswordPolicyConditions instances are equal
         /// </summary>
-        /// <param name="input">Instance of ErrorDetail to be compared</param>
+        /// <param name="input">Instance of PasswordPolicyConditions to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ErrorDetail input)
+        public bool Equals(PasswordPolicyConditions input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Complexity == input.Complexity ||
+                    (this.Complexity != null &&
+                    this.Complexity.Equals(input.Complexity))
                 ) && 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Age == input.Age ||
+                    (this.Age != null &&
+                    this.Age.Equals(input.Age))
                 ) && 
                 (
-                    this.Detail == input.Detail ||
-                    (this.Detail != null &&
-                    this.Detail.Equals(input.Detail))
+                    this.Lockout == input.Lockout ||
+                    (this.Lockout != null &&
+                    this.Lockout.Equals(input.Lockout))
                 );
         }
 
@@ -137,12 +134,12 @@ namespace Finbourne.Identity.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.Detail != null)
-                    hashCode = hashCode * 59 + this.Detail.GetHashCode();
+                if (this.Complexity != null)
+                    hashCode = hashCode * 59 + this.Complexity.GetHashCode();
+                if (this.Age != null)
+                    hashCode = hashCode * 59 + this.Age.GetHashCode();
+                if (this.Lockout != null)
+                    hashCode = hashCode * 59 + this.Lockout.GetHashCode();
                 return hashCode;
             }
         }
