@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**DeleteApplication**](ApplicationsApi.md#deleteapplication) | **DELETE** /api/applications/{id} | [EARLY ACCESS] DeleteApplication: Delete Application
 [**GetApplication**](ApplicationsApi.md#getapplication) | **GET** /api/applications/{id} | [EARLY ACCESS] GetApplication: Get Application
 [**ListApplications**](ApplicationsApi.md#listapplications) | **GET** /api/applications | [EARLY ACCESS] ListApplications: List Applications
-[**RotateApplicationSecrets**](ApplicationsApi.md#rotateapplicationsecrets) | **POST** /api/applications/{id}/lifecycle/$newsecret | [EXPERIMENTAL] RotateApplicationSecrets: Rotate Application Secrets
+[**RotateApplicationSecrets**](ApplicationsApi.md#rotateapplicationsecrets) | **POST** /api/applications/{id}/lifecycle/$newsecret | [EARLY ACCESS] RotateApplicationSecrets: Rotate Application Secrets
 
 
 <a name="createapplication"></a>
@@ -316,7 +316,7 @@ This endpoint does not need any parameter.
 # **RotateApplicationSecrets**
 > OAuthApplication RotateApplicationSecrets (string id)
 
-[EXPERIMENTAL] RotateApplicationSecrets: Rotate Application Secrets
+[EARLY ACCESS] RotateApplicationSecrets: Rotate Application Secrets
 
 Rotate the secrets for the specified application
 
@@ -344,7 +344,7 @@ namespace Example
 
             try
             {
-                // [EXPERIMENTAL] RotateApplicationSecrets: Rotate Application Secrets
+                // [EARLY ACCESS] RotateApplicationSecrets: Rotate Application Secrets
                 OAuthApplication result = apiInstance.RotateApplicationSecrets(id);
                 Debug.WriteLine(result);
             }
