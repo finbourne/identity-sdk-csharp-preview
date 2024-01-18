@@ -27,39 +27,40 @@ using OpenAPIDateConverter = Finbourne.Identity.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Identity.Sdk.Model
 {
     /// <summary>
-    /// The result of setting a password
+    /// PasswordPolicyAgeDto
     /// </summary>
-    [DataContract(Name = "SetPasswordResponse")]
-    public partial class SetPasswordResponse : IEquatable<SetPasswordResponse>
+    [DataContract(Name = "PasswordPolicyAgeDto")]
+    public partial class PasswordPolicyAgeDto : IEquatable<PasswordPolicyAgeDto>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SetPasswordResponse" /> class.
+        /// Initializes a new instance of the <see cref="PasswordPolicyAgeDto" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected SetPasswordResponse() { }
+        protected PasswordPolicyAgeDto() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="SetPasswordResponse" /> class.
+        /// Initializes a new instance of the <see cref="PasswordPolicyAgeDto" /> class.
         /// </summary>
-        /// <param name="updatedAt">The date and time at which the password was successfully updated (required).</param>
-        /// <param name="links">links.</param>
-        public SetPasswordResponse(DateTimeOffset updatedAt = default(DateTimeOffset), List<Link> links = default(List<Link>))
+        /// <param name="maxAgeDays">The maximum age (in days) a password can be before expiring and needing to be changed (required).</param>
+        /// <param name="historyCount">The number of unique passwords that need to be used before a previous password is permitted again (required).</param>
+        public PasswordPolicyAgeDto(int maxAgeDays = default(int), int historyCount = default(int))
         {
-            this.UpdatedAt = updatedAt;
-            this.Links = links;
+            this.MaxAgeDays = maxAgeDays;
+            this.HistoryCount = historyCount;
         }
 
         /// <summary>
-        /// The date and time at which the password was successfully updated
+        /// The maximum age (in days) a password can be before expiring and needing to be changed
         /// </summary>
-        /// <value>The date and time at which the password was successfully updated</value>
-        [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = false)]
-        public DateTimeOffset UpdatedAt { get; set; }
+        /// <value>The maximum age (in days) a password can be before expiring and needing to be changed</value>
+        [DataMember(Name = "maxAgeDays", IsRequired = true, EmitDefaultValue = true)]
+        public int MaxAgeDays { get; set; }
 
         /// <summary>
-        /// Gets or Sets Links
+        /// The number of unique passwords that need to be used before a previous password is permitted again
         /// </summary>
-        [DataMember(Name = "links", EmitDefaultValue = true)]
-        public List<Link> Links { get; set; }
+        /// <value>The number of unique passwords that need to be used before a previous password is permitted again</value>
+        [DataMember(Name = "historyCount", IsRequired = true, EmitDefaultValue = true)]
+        public int HistoryCount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,9 +69,9 @@ namespace Finbourne.Identity.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SetPasswordResponse {\n");
-            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("class PasswordPolicyAgeDto {\n");
+            sb.Append("  MaxAgeDays: ").Append(MaxAgeDays).Append("\n");
+            sb.Append("  HistoryCount: ").Append(HistoryCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,30 +92,27 @@ namespace Finbourne.Identity.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SetPasswordResponse);
+            return this.Equals(input as PasswordPolicyAgeDto);
         }
 
         /// <summary>
-        /// Returns true if SetPasswordResponse instances are equal
+        /// Returns true if PasswordPolicyAgeDto instances are equal
         /// </summary>
-        /// <param name="input">Instance of SetPasswordResponse to be compared</param>
+        /// <param name="input">Instance of PasswordPolicyAgeDto to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SetPasswordResponse input)
+        public bool Equals(PasswordPolicyAgeDto input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
+                    this.MaxAgeDays == input.MaxAgeDays ||
+                    this.MaxAgeDays.Equals(input.MaxAgeDays)
                 ) && 
                 (
-                    this.Links == input.Links ||
-                    this.Links != null &&
-                    input.Links != null &&
-                    this.Links.SequenceEqual(input.Links)
+                    this.HistoryCount == input.HistoryCount ||
+                    this.HistoryCount.Equals(input.HistoryCount)
                 );
         }
 
@@ -127,10 +125,8 @@ namespace Finbourne.Identity.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.UpdatedAt != null)
-                    hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
-                if (this.Links != null)
-                    hashCode = hashCode * 59 + this.Links.GetHashCode();
+                hashCode = hashCode * 59 + this.MaxAgeDays.GetHashCode();
+                hashCode = hashCode * 59 + this.HistoryCount.GetHashCode();
                 return hashCode;
             }
         }
