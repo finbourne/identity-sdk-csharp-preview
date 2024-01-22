@@ -86,7 +86,7 @@ This endpoint does not need any parameter.
 
 <a name="getpasswordpolicy"></a>
 # **GetPasswordPolicy**
-> PasswordPolicyDto GetPasswordPolicy (string userType)
+> PasswordPolicyResponse GetPasswordPolicy (string userType)
 
 [EXPERIMENTAL] GetPasswordPolicy: Gets password policy for a user type
 
@@ -117,7 +117,7 @@ namespace Example
             try
             {
                 // [EXPERIMENTAL] GetPasswordPolicy: Gets password policy for a user type
-                PasswordPolicyDto result = apiInstance.GetPasswordPolicy(userType);
+                PasswordPolicyResponse result = apiInstance.GetPasswordPolicy(userType);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PasswordPolicyDto**](PasswordPolicyDto.md)
+[**PasswordPolicyResponse**](PasswordPolicyResponse.md)
 
 ### Authorization
 
@@ -458,7 +458,7 @@ This endpoint does not need any parameter.
 
 <a name="updatepasswordpolicy"></a>
 # **UpdatePasswordPolicy**
-> PasswordPolicyDto UpdatePasswordPolicy (string userType, PasswordPolicyDto passwordPolicyDto = null)
+> PasswordPolicyResponse UpdatePasswordPolicy (string userType, UpdatePasswordPolicyRequest updatePasswordPolicyRequest = null)
 
 [EXPERIMENTAL] UpdatePasswordPolicy: Updates password policy for a user type
 
@@ -485,12 +485,12 @@ namespace Example
 
             var apiInstance = new AuthenticationApi(config);
             var userType = userType_example;  // string | The type of user (should only be personal or service)
-            var passwordPolicyDto = new PasswordPolicyDto(); // PasswordPolicyDto | The password policy for the given user type (optional) 
+            var updatePasswordPolicyRequest = new UpdatePasswordPolicyRequest(); // UpdatePasswordPolicyRequest | The password policy for the given user type (optional) 
 
             try
             {
                 // [EXPERIMENTAL] UpdatePasswordPolicy: Updates password policy for a user type
-                PasswordPolicyDto result = apiInstance.UpdatePasswordPolicy(userType, passwordPolicyDto);
+                PasswordPolicyResponse result = apiInstance.UpdatePasswordPolicy(userType, updatePasswordPolicyRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -509,11 +509,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userType** | **string**| The type of user (should only be personal or service) | 
- **passwordPolicyDto** | [**PasswordPolicyDto**](PasswordPolicyDto.md)| The password policy for the given user type | [optional] 
+ **updatePasswordPolicyRequest** | [**UpdatePasswordPolicyRequest**](UpdatePasswordPolicyRequest.md)| The password policy for the given user type | [optional] 
 
 ### Return type
 
-[**PasswordPolicyDto**](PasswordPolicyDto.md)
+[**PasswordPolicyResponse**](PasswordPolicyResponse.md)
 
 ### Authorization
 

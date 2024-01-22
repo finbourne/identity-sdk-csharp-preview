@@ -27,26 +27,31 @@ using OpenAPIDateConverter = Finbourne.Identity.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Identity.Sdk.Model
 {
     /// <summary>
-    /// UpdateRoleRequest
+    /// PasswordPolicyResponse
     /// </summary>
-    [DataContract(Name = "UpdateRoleRequest")]
-    public partial class UpdateRoleRequest : IEquatable<UpdateRoleRequest>
+    [DataContract(Name = "PasswordPolicyResponse")]
+    public partial class PasswordPolicyResponse : IEquatable<PasswordPolicyResponse>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateRoleRequest" /> class.
+        /// Initializes a new instance of the <see cref="PasswordPolicyResponse" /> class.
         /// </summary>
-        /// <param name="description">The description for this role.</param>
-        public UpdateRoleRequest(string description = default(string))
+        [JsonConstructorAttribute]
+        protected PasswordPolicyResponse() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PasswordPolicyResponse" /> class.
+        /// </summary>
+        /// <param name="conditions">conditions (required).</param>
+        public PasswordPolicyResponse(PasswordPolicyResponseConditions conditions = default(PasswordPolicyResponseConditions))
         {
-            this.Description = description;
+            // to ensure "conditions" is required (not null)
+            this.Conditions = conditions ?? throw new ArgumentNullException("conditions is a required property for PasswordPolicyResponse and cannot be null");
         }
 
         /// <summary>
-        /// The description for this role
+        /// Gets or Sets Conditions
         /// </summary>
-        /// <value>The description for this role</value>
-        [DataMember(Name = "description", EmitDefaultValue = true)]
-        public string Description { get; set; }
+        [DataMember(Name = "conditions", IsRequired = true, EmitDefaultValue = false)]
+        public PasswordPolicyResponseConditions Conditions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,8 +60,8 @@ namespace Finbourne.Identity.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UpdateRoleRequest {\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("class PasswordPolicyResponse {\n");
+            sb.Append("  Conditions: ").Append(Conditions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,24 +82,24 @@ namespace Finbourne.Identity.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpdateRoleRequest);
+            return this.Equals(input as PasswordPolicyResponse);
         }
 
         /// <summary>
-        /// Returns true if UpdateRoleRequest instances are equal
+        /// Returns true if PasswordPolicyResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpdateRoleRequest to be compared</param>
+        /// <param name="input">Instance of PasswordPolicyResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpdateRoleRequest input)
+        public bool Equals(PasswordPolicyResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.Conditions == input.Conditions ||
+                    (this.Conditions != null &&
+                    this.Conditions.Equals(input.Conditions))
                 );
         }
 
@@ -107,8 +112,8 @@ namespace Finbourne.Identity.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.Conditions != null)
+                    hashCode = hashCode * 59 + this.Conditions.GetHashCode();
                 return hashCode;
             }
         }

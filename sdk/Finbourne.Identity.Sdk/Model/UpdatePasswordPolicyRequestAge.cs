@@ -27,41 +27,40 @@ using OpenAPIDateConverter = Finbourne.Identity.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Identity.Sdk.Model
 {
     /// <summary>
-    /// Create an API key
+    /// UpdatePasswordPolicyRequestAge
     /// </summary>
-    [DataContract(Name = "CreateApiKey")]
-    public partial class CreateApiKey : IEquatable<CreateApiKey>
+    [DataContract(Name = "UpdatePasswordPolicyRequestAge")]
+    public partial class UpdatePasswordPolicyRequestAge : IEquatable<UpdatePasswordPolicyRequestAge>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateApiKey" /> class.
+        /// Initializes a new instance of the <see cref="UpdatePasswordPolicyRequestAge" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CreateApiKey() { }
+        protected UpdatePasswordPolicyRequestAge() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateApiKey" /> class.
+        /// Initializes a new instance of the <see cref="UpdatePasswordPolicyRequestAge" /> class.
         /// </summary>
-        /// <param name="displayName">The display name for the API key (required).</param>
-        /// <param name="deactivationDate">The optional date at which the key should deactivate.</param>
-        public CreateApiKey(string displayName = default(string), DateTimeOffset? deactivationDate = default(DateTimeOffset?))
+        /// <param name="maxAgeDays">The maximum age (in days) a password can be before expiring and needing to be changed (required).</param>
+        /// <param name="historyCount">The number of unique passwords that need to be used before a previous password is permitted again (required).</param>
+        public UpdatePasswordPolicyRequestAge(int maxAgeDays = default(int), int historyCount = default(int))
         {
-            // to ensure "displayName" is required (not null)
-            this.DisplayName = displayName ?? throw new ArgumentNullException("displayName is a required property for CreateApiKey and cannot be null");
-            this.DeactivationDate = deactivationDate;
+            this.MaxAgeDays = maxAgeDays;
+            this.HistoryCount = historyCount;
         }
 
         /// <summary>
-        /// The display name for the API key
+        /// The maximum age (in days) a password can be before expiring and needing to be changed
         /// </summary>
-        /// <value>The display name for the API key</value>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = false)]
-        public string DisplayName { get; set; }
+        /// <value>The maximum age (in days) a password can be before expiring and needing to be changed</value>
+        [DataMember(Name = "maxAgeDays", IsRequired = true, EmitDefaultValue = true)]
+        public int MaxAgeDays { get; set; }
 
         /// <summary>
-        /// The optional date at which the key should deactivate
+        /// The number of unique passwords that need to be used before a previous password is permitted again
         /// </summary>
-        /// <value>The optional date at which the key should deactivate</value>
-        [DataMember(Name = "deactivationDate", EmitDefaultValue = true)]
-        public DateTimeOffset? DeactivationDate { get; set; }
+        /// <value>The number of unique passwords that need to be used before a previous password is permitted again</value>
+        [DataMember(Name = "historyCount", IsRequired = true, EmitDefaultValue = true)]
+        public int HistoryCount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,9 +69,9 @@ namespace Finbourne.Identity.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CreateApiKey {\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-            sb.Append("  DeactivationDate: ").Append(DeactivationDate).Append("\n");
+            sb.Append("class UpdatePasswordPolicyRequestAge {\n");
+            sb.Append("  MaxAgeDays: ").Append(MaxAgeDays).Append("\n");
+            sb.Append("  HistoryCount: ").Append(HistoryCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,29 +92,27 @@ namespace Finbourne.Identity.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CreateApiKey);
+            return this.Equals(input as UpdatePasswordPolicyRequestAge);
         }
 
         /// <summary>
-        /// Returns true if CreateApiKey instances are equal
+        /// Returns true if UpdatePasswordPolicyRequestAge instances are equal
         /// </summary>
-        /// <param name="input">Instance of CreateApiKey to be compared</param>
+        /// <param name="input">Instance of UpdatePasswordPolicyRequestAge to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CreateApiKey input)
+        public bool Equals(UpdatePasswordPolicyRequestAge input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
+                    this.MaxAgeDays == input.MaxAgeDays ||
+                    this.MaxAgeDays.Equals(input.MaxAgeDays)
                 ) && 
                 (
-                    this.DeactivationDate == input.DeactivationDate ||
-                    (this.DeactivationDate != null &&
-                    this.DeactivationDate.Equals(input.DeactivationDate))
+                    this.HistoryCount == input.HistoryCount ||
+                    this.HistoryCount.Equals(input.HistoryCount)
                 );
         }
 
@@ -128,10 +125,8 @@ namespace Finbourne.Identity.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.DisplayName != null)
-                    hashCode = hashCode * 59 + this.DisplayName.GetHashCode();
-                if (this.DeactivationDate != null)
-                    hashCode = hashCode * 59 + this.DeactivationDate.GetHashCode();
+                hashCode = hashCode * 59 + this.MaxAgeDays.GetHashCode();
+                hashCode = hashCode * 59 + this.HistoryCount.GetHashCode();
                 return hashCode;
             }
         }

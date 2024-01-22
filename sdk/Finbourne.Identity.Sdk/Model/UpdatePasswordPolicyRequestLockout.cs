@@ -27,26 +27,31 @@ using OpenAPIDateConverter = Finbourne.Identity.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Identity.Sdk.Model
 {
     /// <summary>
-    /// UpdateRoleRequest
+    /// UpdatePasswordPolicyRequestLockout
     /// </summary>
-    [DataContract(Name = "UpdateRoleRequest")]
-    public partial class UpdateRoleRequest : IEquatable<UpdateRoleRequest>
+    [DataContract(Name = "UpdatePasswordPolicyRequestLockout")]
+    public partial class UpdatePasswordPolicyRequestLockout : IEquatable<UpdatePasswordPolicyRequestLockout>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateRoleRequest" /> class.
+        /// Initializes a new instance of the <see cref="UpdatePasswordPolicyRequestLockout" /> class.
         /// </summary>
-        /// <param name="description">The description for this role.</param>
-        public UpdateRoleRequest(string description = default(string))
+        [JsonConstructorAttribute]
+        protected UpdatePasswordPolicyRequestLockout() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UpdatePasswordPolicyRequestLockout" /> class.
+        /// </summary>
+        /// <param name="maxAttempts">The maximum number of unsuccessful attempts before the user is locked out of their account (required).</param>
+        public UpdatePasswordPolicyRequestLockout(int maxAttempts = default(int))
         {
-            this.Description = description;
+            this.MaxAttempts = maxAttempts;
         }
 
         /// <summary>
-        /// The description for this role
+        /// The maximum number of unsuccessful attempts before the user is locked out of their account
         /// </summary>
-        /// <value>The description for this role</value>
-        [DataMember(Name = "description", EmitDefaultValue = true)]
-        public string Description { get; set; }
+        /// <value>The maximum number of unsuccessful attempts before the user is locked out of their account</value>
+        [DataMember(Name = "maxAttempts", IsRequired = true, EmitDefaultValue = true)]
+        public int MaxAttempts { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,8 +60,8 @@ namespace Finbourne.Identity.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UpdateRoleRequest {\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("class UpdatePasswordPolicyRequestLockout {\n");
+            sb.Append("  MaxAttempts: ").Append(MaxAttempts).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,24 +82,23 @@ namespace Finbourne.Identity.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpdateRoleRequest);
+            return this.Equals(input as UpdatePasswordPolicyRequestLockout);
         }
 
         /// <summary>
-        /// Returns true if UpdateRoleRequest instances are equal
+        /// Returns true if UpdatePasswordPolicyRequestLockout instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpdateRoleRequest to be compared</param>
+        /// <param name="input">Instance of UpdatePasswordPolicyRequestLockout to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpdateRoleRequest input)
+        public bool Equals(UpdatePasswordPolicyRequestLockout input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.MaxAttempts == input.MaxAttempts ||
+                    this.MaxAttempts.Equals(input.MaxAttempts)
                 );
         }
 
@@ -107,8 +111,7 @@ namespace Finbourne.Identity.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                hashCode = hashCode * 59 + this.MaxAttempts.GetHashCode();
                 return hashCode;
             }
         }
