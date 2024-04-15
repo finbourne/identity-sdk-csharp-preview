@@ -4,16 +4,16 @@ All URIs are relative to *https://www.lusid.com/identity*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateApiKey**](PersonalAuthenticationTokensApi.md#createapikey) | **POST** /api/keys | [EARLY ACCESS] CreateApiKey: Create a Personal Access Token
-[**DeleteApiKey**](PersonalAuthenticationTokensApi.md#deleteapikey) | **DELETE** /api/keys/{id} | [EARLY ACCESS] DeleteApiKey: Invalidate a Personal Access Token
-[**ListOwnApiKeys**](PersonalAuthenticationTokensApi.md#listownapikeys) | **GET** /api/keys | [EARLY ACCESS] ListOwnApiKeys: Gets the meta data for all of the user&#39;s existing Personal Access Tokens.
+[**CreateApiKey**](PersonalAuthenticationTokensApi.md#createapikey) | **POST** /api/keys | CreateApiKey: Create a Personal Access Token
+[**DeleteApiKey**](PersonalAuthenticationTokensApi.md#deleteapikey) | **DELETE** /api/keys/{id} | DeleteApiKey: Invalidate a Personal Access Token
+[**ListOwnApiKeys**](PersonalAuthenticationTokensApi.md#listownapikeys) | **GET** /api/keys | ListOwnApiKeys: Gets the meta data for all of the user&#39;s existing Personal Access Tokens.
 
 
 <a name="createapikey"></a>
 # **CreateApiKey**
 > CreatedApiKey CreateApiKey (CreateApiKey createApiKey)
 
-[EARLY ACCESS] CreateApiKey: Create a Personal Access Token
+CreateApiKey: Create a Personal Access Token
 
 Generates a Personal Access Token and returns the new key and its associated metadata.
 
@@ -41,7 +41,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] CreateApiKey: Create a Personal Access Token
+                // CreateApiKey: Create a Personal Access Token
                 CreatedApiKey result = apiInstance.CreateApiKey(createApiKey);
                 Debug.WriteLine(result);
             }
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 # **DeleteApiKey**
 > ApiKey DeleteApiKey (string id)
 
-[EARLY ACCESS] DeleteApiKey: Invalidate a Personal Access Token
+DeleteApiKey: Invalidate a Personal Access Token
 
 Immediately invalidates the specified Personal Access Token
 
@@ -117,7 +117,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] DeleteApiKey: Invalidate a Personal Access Token
+                // DeleteApiKey: Invalidate a Personal Access Token
                 ApiKey result = apiInstance.DeleteApiKey(id);
                 Debug.WriteLine(result);
             }
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 # **ListOwnApiKeys**
 > ICollection&lt;ApiKey&gt; ListOwnApiKeys ()
 
-[EARLY ACCESS] ListOwnApiKeys: Gets the meta data for all of the user's existing Personal Access Tokens.
+ListOwnApiKeys: Gets the meta data for all of the user's existing Personal Access Tokens.
 
 Gets the meta data for all of the user's Personal Access Tokens that have not been deleted. They may be  invalid due to the deactivation date having passed.
 
@@ -192,7 +192,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] ListOwnApiKeys: Gets the meta data for all of the user's existing Personal Access Tokens.
+                // ListOwnApiKeys: Gets the meta data for all of the user's existing Personal Access Tokens.
                 ICollection<ApiKey> result = apiInstance.ListOwnApiKeys();
                 Debug.WriteLine(result);
             }

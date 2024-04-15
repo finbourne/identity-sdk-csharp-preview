@@ -4,26 +4,26 @@ All URIs are relative to *https://www.lusid.com/identity*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateUser**](UsersApi.md#createuser) | **POST** /api/users | [EARLY ACCESS] CreateUser: Create User
-[**DeleteUser**](UsersApi.md#deleteuser) | **DELETE** /api/users/{id} | [EARLY ACCESS] DeleteUser: Delete User
-[**ExpirePassword**](UsersApi.md#expirepassword) | **POST** /api/users/{id}/lifecycle/$expirepassword | [EARLY ACCESS] ExpirePassword: Reset the user&#39;s password to a temporary one
-[**FindUsersById**](UsersApi.md#findusersbyid) | **GET** /api/directory | [EARLY ACCESS] FindUsersById: Find users by id endpoint
-[**GetUser**](UsersApi.md#getuser) | **GET** /api/users/{id} | [EARLY ACCESS] GetUser: Get User
+[**CreateUser**](UsersApi.md#createuser) | **POST** /api/users | CreateUser: Create User
+[**DeleteUser**](UsersApi.md#deleteuser) | **DELETE** /api/users/{id} | DeleteUser: Delete User
+[**ExpirePassword**](UsersApi.md#expirepassword) | **POST** /api/users/{id}/lifecycle/$expirepassword | ExpirePassword: Reset the user&#39;s password to a temporary one
+[**FindUsersById**](UsersApi.md#findusersbyid) | **GET** /api/directory | FindUsersById: Find users by id endpoint
+[**GetUser**](UsersApi.md#getuser) | **GET** /api/users/{id} | GetUser: Get User
 [**ListRunnableUsers**](UsersApi.md#listrunnableusers) | **GET** /api/users/$runnable | [EARLY ACCESS] ListRunnableUsers: List Runable Users
-[**ListUsers**](UsersApi.md#listusers) | **GET** /api/users | [EARLY ACCESS] ListUsers: List Users
-[**ResetFactors**](UsersApi.md#resetfactors) | **POST** /api/users/{id}/lifecycle/$resetfactors | [EARLY ACCESS] ResetFactors: Reset MFA factors
-[**ResetPassword**](UsersApi.md#resetpassword) | **POST** /api/users/{id}/lifecycle/$resetpassword | [EARLY ACCESS] ResetPassword: Reset Password
-[**SendActivationEmail**](UsersApi.md#sendactivationemail) | **POST** /api/users/{id}/lifecycle/$activate | [EARLY ACCESS] SendActivationEmail: Sends an activation email to the User
-[**UnlockUser**](UsersApi.md#unlockuser) | **POST** /api/users/{id}/lifecycle/$unlock | [EARLY ACCESS] UnlockUser: Unlock User
+[**ListUsers**](UsersApi.md#listusers) | **GET** /api/users | ListUsers: List Users
+[**ResetFactors**](UsersApi.md#resetfactors) | **POST** /api/users/{id}/lifecycle/$resetfactors | ResetFactors: Reset MFA factors
+[**ResetPassword**](UsersApi.md#resetpassword) | **POST** /api/users/{id}/lifecycle/$resetpassword | ResetPassword: Reset Password
+[**SendActivationEmail**](UsersApi.md#sendactivationemail) | **POST** /api/users/{id}/lifecycle/$activate | SendActivationEmail: Sends an activation email to the User
+[**UnlockUser**](UsersApi.md#unlockuser) | **POST** /api/users/{id}/lifecycle/$unlock | UnlockUser: Unlock User
 [**UnsuspendUser**](UsersApi.md#unsuspenduser) | **POST** /api/users/{id}/lifecycle/$unsuspend | [EXPERIMENTAL] UnsuspendUser: Unsuspend user
-[**UpdateUser**](UsersApi.md#updateuser) | **PUT** /api/users/{id} | [EARLY ACCESS] UpdateUser: Update User
+[**UpdateUser**](UsersApi.md#updateuser) | **PUT** /api/users/{id} | UpdateUser: Update User
 
 
 <a name="createuser"></a>
 # **CreateUser**
 > UserResponse CreateUser (CreateUserRequest createUserRequest, bool? waitForReindex = null)
 
-[EARLY ACCESS] CreateUser: Create User
+CreateUser: Create User
 
 Create a new User
 
@@ -52,7 +52,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] CreateUser: Create User
+                // CreateUser: Create User
                 UserResponse result = apiInstance.CreateUser(createUserRequest, waitForReindex);
                 Debug.WriteLine(result);
             }
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 # **DeleteUser**
 > void DeleteUser (string id, bool? purge = null)
 
-[EARLY ACCESS] DeleteUser: Delete User
+DeleteUser: Delete User
 
 By default the user will be de-provisioned and inactive, however their record will remain in the identity  provider for audit purposes. If this is not desirable and removal of all trace of the user is required,  the purge parameter can be specified to indicate the details should be purged completely.
 
@@ -130,7 +130,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] DeleteUser: Delete User
+                // DeleteUser: Delete User
                 apiInstance.DeleteUser(id, purge);
             }
             catch (ApiException  e)
@@ -178,7 +178,7 @@ void (empty response body)
 # **ExpirePassword**
 > TemporaryPassword ExpirePassword (string id)
 
-[EARLY ACCESS] ExpirePassword: Reset the user's password to a temporary one
+ExpirePassword: Reset the user's password to a temporary one
 
 Resets the user's password to a temporary one which is then expired
 
@@ -206,7 +206,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] ExpirePassword: Reset the user's password to a temporary one
+                // ExpirePassword: Reset the user's password to a temporary one
                 TemporaryPassword result = apiInstance.ExpirePassword(id);
                 Debug.WriteLine(result);
             }
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 # **FindUsersById**
 > ListUsersResponse FindUsersById (List<string> id)
 
-[EARLY ACCESS] FindUsersById: Find users by id endpoint
+FindUsersById: Find users by id endpoint
 
 Finds a maximum of 50 users by ID
 
@@ -282,7 +282,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] FindUsersById: Find users by id endpoint
+                // FindUsersById: Find users by id endpoint
                 ListUsersResponse result = apiInstance.FindUsersById(id);
                 Debug.WriteLine(result);
             }
@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 # **GetUser**
 > UserResponse GetUser (string id, bool? includeRoles = null)
 
-[EARLY ACCESS] GetUser: Get User
+GetUser: Get User
 
 Get the specified User
 
@@ -359,7 +359,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetUser: Get User
+                // GetUser: Get User
                 UserResponse result = apiInstance.GetUser(id, includeRoles);
                 Debug.WriteLine(result);
             }
@@ -479,7 +479,7 @@ This endpoint does not need any parameter.
 # **ListUsers**
 > ICollection&lt;UserResponse&gt; ListUsers (bool? includeRoles = null, bool? includeDeactivated = null)
 
-[EARLY ACCESS] ListUsers: List Users
+ListUsers: List Users
 
 List the available Users
 
@@ -508,7 +508,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] ListUsers: List Users
+                // ListUsers: List Users
                 ICollection<UserResponse> result = apiInstance.ListUsers(includeRoles, includeDeactivated);
                 Debug.WriteLine(result);
             }
@@ -557,7 +557,7 @@ Name | Type | Description  | Notes
 # **ResetFactors**
 > void ResetFactors (string id)
 
-[EARLY ACCESS] ResetFactors: Reset MFA factors
+ResetFactors: Reset MFA factors
 
 Resets the MFA factors of the specified User
 
@@ -585,7 +585,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] ResetFactors: Reset MFA factors
+                // ResetFactors: Reset MFA factors
                 apiInstance.ResetFactors(id);
             }
             catch (ApiException  e)
@@ -632,7 +632,7 @@ void (empty response body)
 # **ResetPassword**
 > void ResetPassword (string id)
 
-[EARLY ACCESS] ResetPassword: Reset Password
+ResetPassword: Reset Password
 
 Resets the password of the specified User
 
@@ -660,7 +660,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] ResetPassword: Reset Password
+                // ResetPassword: Reset Password
                 apiInstance.ResetPassword(id);
             }
             catch (ApiException  e)
@@ -707,7 +707,7 @@ void (empty response body)
 # **SendActivationEmail**
 > void SendActivationEmail (string id)
 
-[EARLY ACCESS] SendActivationEmail: Sends an activation email to the User
+SendActivationEmail: Sends an activation email to the User
 
 Sends an activation email to the specified User
 
@@ -735,7 +735,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] SendActivationEmail: Sends an activation email to the User
+                // SendActivationEmail: Sends an activation email to the User
                 apiInstance.SendActivationEmail(id);
             }
             catch (ApiException  e)
@@ -782,7 +782,7 @@ void (empty response body)
 # **UnlockUser**
 > void UnlockUser (string id)
 
-[EARLY ACCESS] UnlockUser: Unlock User
+UnlockUser: Unlock User
 
 Unlocks the specified User
 
@@ -810,7 +810,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] UnlockUser: Unlock User
+                // UnlockUser: Unlock User
                 apiInstance.UnlockUser(id);
             }
             catch (ApiException  e)
@@ -932,7 +932,7 @@ void (empty response body)
 # **UpdateUser**
 > UserResponse UpdateUser (string id, UpdateUserRequest updateUserRequest)
 
-[EARLY ACCESS] UpdateUser: Update User
+UpdateUser: Update User
 
 Updates the specified User
 
@@ -961,7 +961,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] UpdateUser: Update User
+                // UpdateUser: Update User
                 UserResponse result = apiInstance.UpdateUser(id, updateUserRequest);
                 Debug.WriteLine(result);
             }

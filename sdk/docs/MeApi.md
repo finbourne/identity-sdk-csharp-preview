@@ -4,7 +4,7 @@ All URIs are relative to *https://www.lusid.com/identity*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetUserInfo**](MeApi.md#getuserinfo) | **GET** /api/me | [EARLY ACCESS] GetUserInfo: Get User Info
+[**GetUserInfo**](MeApi.md#getuserinfo) | **GET** /api/me | GetUserInfo: Get User Info
 [**SetPassword**](MeApi.md#setpassword) | **PUT** /api/me/password | SetPassword: Set password of current user
 
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 # **GetUserInfo**
 > CurrentUserResponse GetUserInfo ()
 
-[EARLY ACCESS] GetUserInfo: Get User Info
+GetUserInfo: Get User Info
 
 Get the requesting user's basic info
 
@@ -39,7 +39,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetUserInfo: Get User Info
+                // GetUserInfo: Get User Info
                 CurrentUserResponse result = apiInstance.GetUserInfo();
                 Debug.WriteLine(result);
             }

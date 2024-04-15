@@ -4,21 +4,21 @@ All URIs are relative to *https://www.lusid.com/identity*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddUserToRole**](RolesApi.md#addusertorole) | **PUT** /api/roles/{id}/users/{userId} | [EARLY ACCESS] AddUserToRole: Add User to Role
-[**CreateRole**](RolesApi.md#createrole) | **POST** /api/roles | [EARLY ACCESS] CreateRole: Create Role
-[**DeleteRole**](RolesApi.md#deleterole) | **DELETE** /api/roles/{id} | [EARLY ACCESS] DeleteRole: Delete Role
-[**GetRole**](RolesApi.md#getrole) | **GET** /api/roles/{id} | [EARLY ACCESS] GetRole: Get Role
-[**ListRoles**](RolesApi.md#listroles) | **GET** /api/roles | [EARLY ACCESS] ListRoles: List Roles
-[**ListUsersInRole**](RolesApi.md#listusersinrole) | **GET** /api/roles/{id}/users | [EARLY ACCESS] ListUsersInRole: Get the users in the specified role.
-[**RemoveUserFromRole**](RolesApi.md#removeuserfromrole) | **DELETE** /api/roles/{id}/users/{userId} | [EARLY ACCESS] RemoveUserFromRole: Remove User from Role
-[**UpdateRole**](RolesApi.md#updaterole) | **PUT** /api/roles/{id} | [EARLY ACCESS] UpdateRole: Update Role
+[**AddUserToRole**](RolesApi.md#addusertorole) | **PUT** /api/roles/{id}/users/{userId} | AddUserToRole: Add User to Role
+[**CreateRole**](RolesApi.md#createrole) | **POST** /api/roles | CreateRole: Create Role
+[**DeleteRole**](RolesApi.md#deleterole) | **DELETE** /api/roles/{id} | DeleteRole: Delete Role
+[**GetRole**](RolesApi.md#getrole) | **GET** /api/roles/{id} | GetRole: Get Role
+[**ListRoles**](RolesApi.md#listroles) | **GET** /api/roles | ListRoles: List Roles
+[**ListUsersInRole**](RolesApi.md#listusersinrole) | **GET** /api/roles/{id}/users | ListUsersInRole: Get the users in the specified role.
+[**RemoveUserFromRole**](RolesApi.md#removeuserfromrole) | **DELETE** /api/roles/{id}/users/{userId} | RemoveUserFromRole: Remove User from Role
+[**UpdateRole**](RolesApi.md#updaterole) | **PUT** /api/roles/{id} | UpdateRole: Update Role
 
 
 <a name="addusertorole"></a>
 # **AddUserToRole**
 > void AddUserToRole (string id, string userId)
 
-[EARLY ACCESS] AddUserToRole: Add User to Role
+AddUserToRole: Add User to Role
 
 Adds the User to the specified Role
 
@@ -47,7 +47,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] AddUserToRole: Add User to Role
+                // AddUserToRole: Add User to Role
                 apiInstance.AddUserToRole(id, userId);
             }
             catch (ApiException  e)
@@ -96,7 +96,7 @@ void (empty response body)
 # **CreateRole**
 > RoleResponse CreateRole (CreateRoleRequest createRoleRequest)
 
-[EARLY ACCESS] CreateRole: Create Role
+CreateRole: Create Role
 
 Creates a new Role
 
@@ -124,7 +124,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] CreateRole: Create Role
+                // CreateRole: Create Role
                 RoleResponse result = apiInstance.CreateRole(createRoleRequest);
                 Debug.WriteLine(result);
             }
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 # **DeleteRole**
 > void DeleteRole (string id)
 
-[EARLY ACCESS] DeleteRole: Delete Role
+DeleteRole: Delete Role
 
 Delete the specified role
 
@@ -201,7 +201,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] DeleteRole: Delete Role
+                // DeleteRole: Delete Role
                 apiInstance.DeleteRole(id);
             }
             catch (ApiException  e)
@@ -248,7 +248,7 @@ void (empty response body)
 # **GetRole**
 > RoleResponse GetRole (string id)
 
-[EARLY ACCESS] GetRole: Get Role
+GetRole: Get Role
 
 Get the specified role
 
@@ -276,7 +276,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetRole: Get Role
+                // GetRole: Get Role
                 RoleResponse result = apiInstance.GetRole(id);
                 Debug.WriteLine(result);
             }
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 # **ListRoles**
 > ICollection&lt;RoleResponse&gt; ListRoles ()
 
-[EARLY ACCESS] ListRoles: List Roles
+ListRoles: List Roles
 
 List the available Roles
 
@@ -352,7 +352,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] ListRoles: List Roles
+                // ListRoles: List Roles
                 ICollection<RoleResponse> result = apiInstance.ListRoles();
                 Debug.WriteLine(result);
             }
@@ -396,7 +396,7 @@ This endpoint does not need any parameter.
 # **ListUsersInRole**
 > ICollection&lt;UserResponse&gt; ListUsersInRole (string id)
 
-[EARLY ACCESS] ListUsersInRole: Get the users in the specified role.
+ListUsersInRole: Get the users in the specified role.
 
 List all Users in the specified Role
 
@@ -424,7 +424,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] ListUsersInRole: Get the users in the specified role.
+                // ListUsersInRole: Get the users in the specified role.
                 ICollection<UserResponse> result = apiInstance.ListUsersInRole(id);
                 Debug.WriteLine(result);
             }
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 # **RemoveUserFromRole**
 > void RemoveUserFromRole (string id, string userId)
 
-[EARLY ACCESS] RemoveUserFromRole: Remove User from Role
+RemoveUserFromRole: Remove User from Role
 
 Removes the User from the specified Role
 
@@ -501,7 +501,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] RemoveUserFromRole: Remove User from Role
+                // RemoveUserFromRole: Remove User from Role
                 apiInstance.RemoveUserFromRole(id, userId);
             }
             catch (ApiException  e)
@@ -550,7 +550,7 @@ void (empty response body)
 # **UpdateRole**
 > RoleResponse UpdateRole (string id, UpdateRoleRequest updateRoleRequest = null)
 
-[EARLY ACCESS] UpdateRole: Update Role
+UpdateRole: Update Role
 
 Update the specified Role
 
@@ -579,7 +579,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] UpdateRole: Update Role
+                // UpdateRole: Update Role
                 RoleResponse result = apiInstance.UpdateRole(id, updateRoleRequest);
                 Debug.WriteLine(result);
             }
