@@ -6,8 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateApplication**](ApplicationsApi.md#createapplication) | **POST** /api/applications | [EARLY ACCESS] CreateApplication: Create Application
 [**DeleteApplication**](ApplicationsApi.md#deleteapplication) | **DELETE** /api/applications/{id} | [EARLY ACCESS] DeleteApplication: Delete Application
-[**GetApplication**](ApplicationsApi.md#getapplication) | **GET** /api/applications/{id} | [EARLY ACCESS] GetApplication: Get Application
-[**ListApplications**](ApplicationsApi.md#listapplications) | **GET** /api/applications | [EARLY ACCESS] ListApplications: List Applications
+[**GetApplication**](ApplicationsApi.md#getapplication) | **GET** /api/applications/{id} | GetApplication: Get Application
+[**ListApplications**](ApplicationsApi.md#listapplications) | **GET** /api/applications | ListApplications: List Applications
 [**RotateApplicationSecrets**](ApplicationsApi.md#rotateapplicationsecrets) | **POST** /api/applications/{id}/lifecycle/$newsecret | [EARLY ACCESS] RotateApplicationSecrets: Rotate Application Secrets
 
 
@@ -166,7 +166,7 @@ void (empty response body)
 # **GetApplication**
 > OAuthApplication GetApplication (string id, bool? includeSecret = null)
 
-[EARLY ACCESS] GetApplication: Get Application
+GetApplication: Get Application
 
 get the specified application, and optionally the OIDC secret
 
@@ -195,7 +195,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetApplication: Get Application
+                // GetApplication: Get Application
                 OAuthApplication result = apiInstance.GetApplication(id, includeSecret);
                 Debug.WriteLine(result);
             }
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 # **ListApplications**
 > ICollection&lt;OAuthApplication&gt; ListApplications ()
 
-[EARLY ACCESS] ListApplications: List Applications
+ListApplications: List Applications
 
 List the available applications
 
@@ -272,7 +272,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] ListApplications: List Applications
+                // ListApplications: List Applications
                 ICollection<OAuthApplication> result = apiInstance.ListApplications();
                 Debug.WriteLine(result);
             }
