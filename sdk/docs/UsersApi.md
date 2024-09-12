@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**ExpirePassword**](UsersApi.md#expirepassword) | **POST** /api/users/{id}/lifecycle/$expirepassword | ExpirePassword: Reset the user&#39;s password to a temporary one
 [**FindUsersById**](UsersApi.md#findusersbyid) | **GET** /api/directory | FindUsersById: Find users by id endpoint
 [**GetUser**](UsersApi.md#getuser) | **GET** /api/users/{id} | GetUser: Get User
+[**GetUserSchema**](UsersApi.md#getuserschema) | **GET** /api/users/schema | [EXPERIMENTAL] GetUserSchema: Get User Schema
 [**ListRunnableUsers**](UsersApi.md#listrunnableusers) | **GET** /api/users/$runnable | [EARLY ACCESS] ListRunnableUsers: List Runable Users
 [**ListUsers**](UsersApi.md#listusers) | **GET** /api/users | ListUsers: List Users
 [**ResetFactors**](UsersApi.md#resetfactors) | **POST** /api/users/{id}/lifecycle/$resetfactors | ResetFactors: Reset MFA factors
@@ -17,6 +18,7 @@ Method | HTTP request | Description
 [**UnlockUser**](UsersApi.md#unlockuser) | **POST** /api/users/{id}/lifecycle/$unlock | UnlockUser: Unlock User
 [**UnsuspendUser**](UsersApi.md#unsuspenduser) | **POST** /api/users/{id}/lifecycle/$unsuspend | [EXPERIMENTAL] UnsuspendUser: Unsuspend user
 [**UpdateUser**](UsersApi.md#updateuser) | **PUT** /api/users/{id} | UpdateUser: Update User
+[**UpdateUserSchema**](UsersApi.md#updateuserschema) | **PUT** /api/users/schema | [EXPERIMENTAL] UpdateUserSchema: Update User Schema
 
 
 <a name="createuser"></a>
@@ -400,6 +402,77 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Get the specified user |  -  |
 | **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getuserschema"></a>
+# **GetUserSchema**
+> UserSchemaResponse GetUserSchema ()
+
+[EXPERIMENTAL] GetUserSchema: Get User Schema
+
+Get the User Schema
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Finbourne.Identity.Sdk.Api;
+using Finbourne.Identity.Sdk.Client;
+using Finbourne.Identity.Sdk.Model;
+
+namespace Example
+{
+    public class GetUserSchemaExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/identity";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UsersApi(config);
+
+            try
+            {
+                // [EXPERIMENTAL] GetUserSchema: Get User Schema
+                UserSchemaResponse result = apiInstance.GetUserSchema();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.GetUserSchema: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**UserSchemaResponse**](UserSchemaResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Update the User Schema |  -  |
 | **0** | Error response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1001,6 +1074,82 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Update a user |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateuserschema"></a>
+# **UpdateUserSchema**
+> UserSchemaResponse UpdateUserSchema (UpdateUserSchemaRequest updateUserSchemaRequest)
+
+[EXPERIMENTAL] UpdateUserSchema: Update User Schema
+
+Update the User Schema
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Finbourne.Identity.Sdk.Api;
+using Finbourne.Identity.Sdk.Client;
+using Finbourne.Identity.Sdk.Model;
+
+namespace Example
+{
+    public class UpdateUserSchemaExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/identity";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UsersApi(config);
+            var updateUserSchemaRequest = new UpdateUserSchemaRequest(); // UpdateUserSchemaRequest | The new User Schema
+
+            try
+            {
+                // [EXPERIMENTAL] UpdateUserSchema: Update User Schema
+                UserSchemaResponse result = apiInstance.UpdateUserSchema(updateUserSchemaRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.UpdateUserSchema: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **updateUserSchemaRequest** | [**UpdateUserSchemaRequest**](UpdateUserSchemaRequest.md)| The new User Schema | 
+
+### Return type
+
+[**UserSchemaResponse**](UserSchemaResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Update the User Schema |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
